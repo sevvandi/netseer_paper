@@ -44,16 +44,17 @@ Growing networks are present in many fields, spanning from Telecommunications mo
     - A. Different fields that want to model graph growth.
     - Q. )
 
-`netseer` is an R and Python-based package that uses an adapated form of Flux Balance Analysis to predict graph structures from time-series graphs. It is published on both CRAN[@netseerR] and PYPI [@netseerPy] under the `netseer` package.
+`netseer` is an R and Python-based package that uses an adapted form of Flux Balance Analysis to predict graph structures from time-series graphs. It is published on both CRAN[@netseerR] and PYPI [@netseerPy] under the `netseer` package.
 
 As `netseer` is relevant to professions that occupy differing programing language ecosystems, `netseer` has both an R and Python implementation that act in parity. The underlying logic of Netseer has a publication [@kandanaarachchi2025predictinggraphstructureadapted:2025].
 
-**--Check if FBA use in Graph Prediction is novel** The use of FBA in graph prediction is a novel approach that, comparedf to existing methods, **--what benefits are there to use FBA** takes the weight vertices into consideration when performing graph predictions.
+**--Check if FBA use in Graph Prediction is novel** The use of FBA in graph prediction is a novel approach that, compared to existing methods, takes the weight vertices into consideration when performing graph predictions.
 
 # Usage
 
-`netseer` processes suitable discrete time-series graphs that are in an ordered sequence (e.g. by time) and grow over time **--Double check that growing is needed**. Each step between graphs are NS...
-*
+`netseer` processes suitable discrete time-series graphs that are in an ordered sequence (e.g. by time) and grow over time **--Double check that growing is needed**.
+
+![A time-series graph growing, with a 1 step prediction by netseer.\label{fig:graph_grow}](assets/netseer.svg)
 
 # Examples
 
