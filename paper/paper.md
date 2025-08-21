@@ -25,12 +25,6 @@ affiliations:
    index: 2
 date: 14 August 2025
 bibliography: paper.bib
-
-[//]: # (Optional fields if submitting to a AAS journal too, see this blog post:)
-[//]: # (https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing)
-[//]: # (aas-doi: 10.3847/xxxxx <- update this with the DOI from AAS once you know it.)
-[//]: # (aas-journal: Astrophysical Journal <- The name of the AAS journal.)
-
 ---
 
 # Summary
@@ -50,7 +44,7 @@ Growing networks are present in many fields, spanning from Telecommunications mo
     - A. Different fields that want to model graph growth.
     - Q. )
 
-`netseer` is an R and Python-based package that uses an adapated form of Flux Balance Analysis to predict graph structures from time-series graphs. It is published on both CRAN and PYPI under the `netseer` package [@netseer].
+`netseer` is an R and Python-based package that uses an adapated form of Flux Balance Analysis to predict graph structures from time-series graphs. It is published on both CRAN[@netseerR] and PYPI [@netseerPy] under the `netseer` package.
 
 As `netseer` is relevant to professions that occupy differing programing language ecosystems, `netseer` has both an R and Python implementation that act in parity. The underlying logic of Netseer has a publication [@kandanaarachchi2025predictinggraphstructureadapted:2025].
 
