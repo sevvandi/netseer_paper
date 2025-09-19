@@ -26,14 +26,11 @@ bibliography: paper.bib
 # Notes
 
 The notes section isn't part of the paper. Just here as style guide for comments etc.  
-With markdown, you can write comments using:  
-[//]: # (BO: This is the comment message)  
-These comments shouldn't be visible in the created pdf, or when rendering markdown as HTML.  
-Edit: They are still visible when converting to pdf, but not in HTML.  
-If you want a comment to be visible in rendered markdown, I'm going to use:  
-**--BO: This is a comment message--**  
+I'm writing comments like:
+**--BO: Comment goes here--**  > I'm using this for general comments/structure  
+[//]: # (BO: This is the comment message)   > I'm using this for thoughts/dot points  
+Typically, the 2nd comment type should be hidden in HTML rendered markdown but is it still shown in the pdf.
 Where BO are my initials. Remember for markdown that 2 spaces at the end of a line = new line.  
-I'll personally use the hidden comments as my dot points, and the shown as descriptions.  
 
 [JOSS Guidelines](https://joss.readthedocs.io/en/latest/paper.html):  
 
@@ -102,7 +99,7 @@ Increase `h` to predict more steps into the future.
 graphlist = list()
 file_paths = list.files(pattern = "^*.gml$")
 for (file in file_paths) {
-  tempGraph <- read_graph("path/to/file", format ="gml")
+  tempGraph <- read_graph(file, format ="gml")
   graphlist <- append(graphlist, tempGraph)
 }
 
