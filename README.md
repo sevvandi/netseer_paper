@@ -1,12 +1,81 @@
 # Netseer repository
 
-This is a repository containing the code for both Netseer R and Netseer Python.
+This is a repository containing the code for both `netseer` R and `netseer` Python.
 
-## R Installation
+## Installation
 
+This project is a secondary repository, storing both the R and Python projects for `netseer` alongside JOSS paper information.
+
+Both packages are available on CRAN and PYPI under `netseer`
+
+```bash
+install.packages("netseer") # R
+pip install netseer # Python
 ```
-utils::install.packages("devtools")
-devtools::install_github("sevvandi/netseer_paper/netseer-r")
+
+### Universal
+
+Download the repository:
+
+``` bash
+git clone git@github.com:sevvandi/netseer_paper.git
+cd netseer_paper
 ```
 
-## Python Installation
+Inside of the netseer_paper project root, either Python or R libraries can be built.
+Alternatively for R, the package can be built directly from GitHub using devtools (See R section below).
+
+### Python
+
+For just installing netseer from PYPI:
+
+``` bash
+pip install netseer
+# OR
+uv add netseer
+```
+
+The Python project assumes you are using uv.
+Installing directly from GitHub:
+
+```bash
+uv pip install "git+https://github.com:sevvandi/netseer_paper/netseer-py"
+```
+
+For building netseer locally using uv:
+
+``` bash
+cd netseer_paper
+uv sync
+uv build
+```
+
+This will generate a wheel and tar inside dist/.
+In another UV project, you can then:
+
+``` bash
+uv add --editable path/to/netseer_paper/netseer-py
+```
+
+This will install netseer from the netseer_paper.
+The `path/to/netseer_paper` can be relative e.g. `../netseer_paper`
+
+### R
+
+For R, the easiest method is building directly from GitHub using the remotes package:
+
+``` R
+install.packages("remotes")
+remotes::install_github("sevvandi/netseer-r/netseer_paper")
+```
+
+Afterwards, `netseer` should be accessible.
+
+For Windows, this will require [RTools](https://cran.r-project.org/bin/windows/Rtools/) as some of the R code is using C.  
+Linux installs may need a C compiler.
+
+For building netseer locally using R:
+
+``` R
+TODO
+```
