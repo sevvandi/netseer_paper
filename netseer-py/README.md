@@ -1,5 +1,9 @@
 # Netseer
 
+NOTE: For installation instructions from the netseer_paper repository, refer to `/netseer_paper/README.md`.  
+This README is a direct copy from the original [GitHub repository](https://github.com/sevvandi/netseer-python).  
+The instructions are still up to date, but doesn't cover paper specific tasks like building from source.
+
 ## Predicting graph structure from a time series of graphs
 
 This is a Python implementation of [*netseer*](https://arxiv.org/abs/2507.05806).  

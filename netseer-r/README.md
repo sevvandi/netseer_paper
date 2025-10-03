@@ -3,6 +3,10 @@
 
 # Predicting graph structure from a time series of graphs <img src="man/figures/logo.png" align="right" height="138" />
 
+NOTE: For installation instructions from the netseer_paper repository, refer to `/netseer_paper/README.md`.  
+This README is a direct copy from the original [GitHub repository](https://github.com/sevvandi/netseer).  
+The instructions are still up to date, but doesn't cover paper specific tasks like building from source.
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/sevvandi/netseer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sevvandi/netseer/actions/workflows/R-CMD-check.yaml)
