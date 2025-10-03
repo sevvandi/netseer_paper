@@ -67,7 +67,7 @@ The purpose of `netseer` is to provide a novel yet low resource method of predic
 **--BO: I'll probably be working on this part for a bit--**  
 **--Links to other papers: [DAMNETS](https://arxiv.org/abs/2203.15009), [AGE](https://dl.acm.org/doi/10.1007/978-3-030-47426-3_34), [Meta Study with both](https://dl.acm.org/doi/10.1145/3642970.3655829)--**  
 **-AGE Seems to require access. --**  
-Other contemporary approaches, such as DAMNETS[@damnets] and AGE[@age] typically use more resource intensive techniques like predictive/generative AI to achieve a predicted graph from a sequence. `netseer` however is more resource efficient as it utilises a **--graph and constraint based methodology using FBA???**.
+`netseer` aims to be resource efficient, as it utilises a graph and constraint based methodology using FBA. Other contemporary approaches, such as DAMNETS[@damnets] and AGE[@age] typically use more resource intensive techniques like predictive/generative AI to achieve a predicted graph from a sequence, where they typically use training data and computationally expensive neural networks. As `netseer` doesn't require the use of training data or generative machine learning processes, it achieves the status of a resource efficient alternative.
 
 # Usage
 

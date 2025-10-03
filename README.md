@@ -1,10 +1,17 @@
 # Netseer repository
 
 This is a repository containing the code for both `netseer` R and `netseer` Python.
+This repository contains the:
+
+- Source code for the R implementation under `./netseer-r/`
+- Source code for the Python implementation under `./netseer-py/`
+- The JOSS paper files under `./paper/`
+
+The source code for the R and Python versions is a direct drag and drop from their respective repositories as of 2025/10/03.
 
 ## Installation
 
-This project is a secondary repository, storing both the R and Python projects for `netseer` alongside JOSS paper information.
+### From a package repository
 
 Both packages are available on CRAN and PYPI under `netseer`
 
@@ -13,7 +20,7 @@ install.packages("netseer") # R
 pip install netseer # Python
 ```
 
-### Universal
+### Building from source
 
 Download the repository:
 
@@ -25,15 +32,7 @@ cd netseer_paper
 Inside of the netseer_paper project root, either Python or R libraries can be built.
 Alternatively for R, the package can be built directly from GitHub using devtools (See R section below).
 
-### Python
-
-For just installing netseer from PYPI:
-
-``` bash
-pip install netseer
-# OR
-uv add netseer
-```
+#### Python
 
 The Python project assumes you are using uv.
 Installing directly from GitHub:
@@ -45,7 +44,7 @@ uv pip install "git+https://github.com:sevvandi/netseer_paper/netseer-py"
 For building netseer locally using uv:
 
 ``` bash
-cd netseer_paper
+cd netseer-py
 uv sync
 uv build
 ```
@@ -57,10 +56,10 @@ In another UV project, you can then:
 uv add --editable path/to/netseer_paper/netseer-py
 ```
 
-This will install netseer from the netseer_paper.
-The `path/to/netseer_paper` can be relative e.g. `../netseer_paper`
+This will install netseer from the `./netseer_paper/netseer-py`.
+The `path/to/netseer_paper` can be relative e.g. `../netseer_paper`.
 
-### R
+#### R
 
 For R, the easiest method is building directly from GitHub using the remotes package:
 
@@ -77,5 +76,8 @@ Linux installs may need a C compiler.
 For building netseer locally using R:
 
 ``` R
-TODO
+remotes::install_local(
+  path = "/path/to/netseer_paper/netseer-r",
+  dependencies = TRUE
+)
 ```
