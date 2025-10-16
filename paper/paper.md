@@ -86,7 +86,7 @@ Loading a set of graphs from GML files, then predicting a one step into the futu
 graph_list = utils.read_graph_list(path_to_graphs)
 
 # Generate the predicted next graph
-predicted_graph = predict.predict)graph(graph_list, h=1)
+predicted_graph = predict.predict_graph(graph_list, h=1)
 ```
 
 `path_to_graphs` is a list of paths to be loaded into memory.  
@@ -106,6 +106,31 @@ for (file in file_paths) {
 %% Generate the predicted next graph
 grpred <- predict_graph(graphlist[1:length(graphlist)],h = 1) 
 ```
+
+## Graph Examples
+
+From generating and processing the graphs using the python implementation:
+
+|graph_num|node_count|edge_count|
+|---------|----------|----------|
+|1        |5         |4         |
+|2        |6         |5         |
+|3        |7         |6         |
+|4        |8         |6         |
+|5        |9         |6         |
+|6        |10        |7         |
+|7        |11        |8         |
+|8        |13        |9         |
+|9        |15        |10        |
+|10        |17        |11        |
+|11       |19        |13        |
+|12       |21        |15        |
+|13       |24        |17        |
+|14       |27        |19        |
+|15       |30        |21        |
+|pred|33        |24        |
+
+*--BO: In paper/assets I've included the 1-15 graphs.*
 
 # Acknowledgements
 
