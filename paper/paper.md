@@ -46,11 +46,15 @@ Complex systems, such as transport, electricity, telecommunications, and social 
 Our proposed software, `netseer`, combines time-series forecasting with Flux Balance Analysis (FBA) [@whatIsFlux; @patternsAndDynamics] to predict graph structures. Typically, in time-series forecasting the network is assumed to be fixed and known which is inflexible when dealing with dynamic graphs. `netseer` uses FBA, a mathematical approach used widely in biochemistry for describing networks of chemical reactions. We have adapted FBA towards graph prediction[@predictingGraphStruc], which allows for graph prediction involving shrinking and growing in the number of vertices and edges between time-series steps, something that to our knowledge has not been studied before.  
 *--BO: I'm fairly sure that Netseer works when one of the graphs shrinks in one step then grows in another--*  
 
+Netseer predicts the graph structure in two steps. First the node degrees at a future time step is predicted using standard time series methods. The degree forecasts includes the degrees of new, unseen nodes. Then the predicted degrees, which correspond to edges are allocated to the nodes using Flux Balance Analysis, an optimisation method used in metabolic network reconstruction. 
+
 # Statement of need
 
 **-- Primarily, the purpose of the software.--**  
 **-- Where does netseer fit in against related work.--**  
 The purpose of `netseer` is to provide a novel yet low resource method of predicting graph structures for fields where modelling the future state of dynamic graphs is important, such as traffic forecasting where available routes and traffic load are constantly changing at different time intervals. One important commonality in fields that use dynamic graphs is the sheer amount of data required, so a low resource approach is ever more wanted. With the intent of being as impactful as possible in different fields, `netseer` has been implemented as both a Python package and an R package for flexible adoption.
+
+
 
 **--BO:We're comparing to DAMNETS and AGE I believe--**  
 **--BO: I'll probably be working on this part for a bit--**  
