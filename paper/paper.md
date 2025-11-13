@@ -28,7 +28,7 @@ bibliography: paper.bib
 
 # Summary
 
-The _Netseer_ package (for both Python and R) models a temporal sequence of graphs and predicts graphs at future time steps.
+_Netseer_ is an open-source package (for both Python and R) that models a temporal sequence of graphs and predicts graph structures at future time steps.
 The underlying algorithm is a combination of ARIMA time series modelling and an adapted form of Flux Balance Analysis (FBA) [@whatIsFlux; @patternsAndDynamics].
 
 TODO: summarise package features (eg. how many graphs can it handle, size of graphs, how many steps ahead can be predicted, etc)
@@ -43,11 +43,16 @@ Modelling the dynamics can be used for predicting graphs at future time steps,
 which in turn facilitates applications such as the detection of anomalous graphs via differences between observed and predicted graphs.
 The anomalous graphs may represent events of interest, including network overloads, cyber attacks, and car accidents.
 
-Our proposed software, `netseer`, combines time-series forecasting with Flux Balance Analysis (FBA) [@whatIsFlux; @patternsAndDynamics] to predict graph structures.
-Typically, in time-series forecasting the network is assumed to be fixed and known which is inflexible when dealing with dynamic graphs.
-(Or say . .  Time series forecasting mostly focusses on univariate or multi-variate time series. While there is work done on hierarchical forecasting [@hyndman2018forecasting],  not much work is done when the the quantities of interest has dynamic network structure.)
+Typically, in time-series prediction the graph is assumed to be fixed and known which is inflexible when dealing with dynamic graphs.
+(Or say . .  Time series forecasting mostly focusses on univariate or multi-variate time series.
+While there is work done on hierarchical forecasting [@hyndman2018forecasting],
+not much work is done when the the quantities of interest has dynamic network structure.)
 `netseer` uses FBA, a mathematical approach used widely in biochemistry for describing networks of chemical reactions.
-We have adapted FBA towards graph prediction[@predictingGraphStruc], which allows for graph prediction involving shrinking and growing in the number of vertices and edges between time-series steps, something that to our knowledge has not been studied before.  
+We have adapted FBA towards graph prediction [@predictingGraphStruc],
+which allows for graph prediction involving shrinking and growing in the number of vertices and edges between time-series steps,
+something that to our knowledge has not been studied before.  
+
+Our proposed software, `netseer`, combines time-series forecasting with Flux Balance Analysis (FBA) [@whatIsFlux; @patternsAndDynamics] to predict graph structures.
 
 Netseer predicts the graph structure in two steps.
 First, the node degrees at a future time step are predicted using standard time series methods.
@@ -56,22 +61,35 @@ Then the predicted degrees, which correspond to edges are allocated to the nodes
 an optimisation method used in metabolic network reconstruction. 
 The technical details of the underlying algorithm are presented in 
 
+The purpose of `netseer` is to provide a novel yet low resource method of predicting graph structures
+for fields where modelling the future state of dynamic graphs is important,
+such as traffic forecasting where available routes and traffic load are constantly changing at various time intervals.
+One important commonality in fields that use dynamic graphs is the sheer amount of data required,
+so a low resource approach is ever more wanted.
+With the intent of being as impactful as possible in various fields,
+`netseer` has been implemented as both a Python package and an R package for flexible adoption.
 
-**-- Primarily, the purpose of the software.--**  
-**-- Where does netseer fit in against related work.--**  
-The purpose of `netseer` is to provide a novel yet low resource method of predicting graph structures for fields where modelling the future state of dynamic graphs is important, such as traffic forecasting where available routes and traffic load are constantly changing at different time intervals. One important commonality in fields that use dynamic graphs is the sheer amount of data required, so a low resource approach is ever more wanted. With the intent of being as impactful as possible in different fields, `netseer` has been implemented as both a Python package and an R package for flexible adoption.
+`netseer` aims to be resource efficient, as it utilises a graph and constraint based methodology using FBA.
+Other contemporary approaches, such as DAMNETS [@damnets] and AGE [@age] typically use more resource intensive techniques like generative AI to process dynamic graphs.
+Generative AI approaches are more involved, requiring training data, fitting the model the to training data,
+and testing against metrics, which all introduce additional stages into the prediction process.
+As `netseer` doesn't require the use of training data or generative machine learning processes,
+it achieves the status of a resource efficient and less involved alternative.
 
-
-
-**--BO:We're comparing to DAMNETS and AGE I believe--**  
-**--BO: I'll probably be working on this part for a bit--**  
 **--Links to other papers: [DAMNETS](https://arxiv.org/abs/2203.15009), [AGE](https://dl.acm.org/doi/10.1007/978-3-030-47426-3_34), [Meta Study with both](https://dl.acm.org/doi/10.1145/3642970.3655829)--**  
 **-AGE Seems to require access. --**  
-`netseer` aims to be resource efficient, as it utilises a graph and constraint based methodology using FBA. Other contemporary approaches, such as DAMNETS[@damnets] and AGE[@age] typically use more resource intensive techniques like generative AI to process dynamic graphs. Generative AI approaches are more involved, requiring training data, fitting the model the to training data, and testing against metrics, which all introduce additional stages  into the prediction process. As `netseer` doesn't require the use of training data or generative machine learning processes, it achieves the status of a resource efficient and less involved alternative.
 
 # Usage
 
-`netseer` has both a Python and R implementation as packages that use an adapted form of Flux Balance Analysis to predict graph structures from an ordered time-series list of graphs. It is published on both CRAN[@netseerR] and PYPI [@netseerPy] under the `netseer` package. `netseer` operates on a load then predict methodology, where iGraph compatible graphs are loaded into memory as an ordered list, then the graph list is used for predictions. Both the Python and R implementations have methods for generating dummy data, and the Python implementation has helper functions for loading graphs from local directories. The dummy data can be generated with different constraints, such as exponential growth between time-series steps, or linear growth.
+`netseer` has both a Python and R implementation as packages that use an adapted form of Flux Balance Analysis to predict graph structures from an ordered time-series list of graphs.
+It is published on both CRAN [@netseerR] and PYPI [@netseerPy] under the `netseer` package.
+`netseer` operates on a load then predict methodology,
+where iGraph compatible graphs are loaded into memory as an ordered list,
+then the graph list is used for predictions.
+Both the Python and R implementations have methods for generating dummy data,
+and the Python implementation has helper functions for loading graphs from local directories.
+The dummy data can be generated with various constraints,
+such as exponential growth between time-series steps, or linear growth.
 
 <!-- old figure commented out, as it's a mess -->
 <!-- ![A time-series graph growing, with a 1 step prediction by netseer.\label{fig:graph_grow}](assets/netseer.svg) -->
@@ -85,6 +103,8 @@ TODO: use plain PDF for the figure; do not use SVG as that slows down compilatio
 Loading a set of graphs from GML files, then predicting a one step into the future.
 
 ## Python Implementation
+
+TODO: need to show a self-contained program
 
 ``` Python
 # load graphs
@@ -102,6 +122,8 @@ predicted_graph_5 = predict.predict_graph(graph_list, h=5)
 Increase `h` to predict more steps into the future.
 
 ## R Implementation
+
+TODO: need to show a self-contained program
 
 ``` R
 %% using the iGraph package, load the time-series graphs into a list
@@ -121,7 +143,9 @@ grpred_2 <- predict_graph(graphlist[1:length(graphlist)],h = 5)
 
 ## Graph Examples
 
-The provided sample dataset consists of 15 graphs in a time series. The Table 1\ref{table:Step-Error} is created by loading the first 12 graphs into memory, then predicting the 13th, 14th and 15th using steps 1, 2, and 3.
+The provided sample dataset consists of 15 graphs in a time series.
+The Table 1\ref{table:Step-Error} is created by loading the first 12 graphs into memory,
+then predicting the 13th, 14th and 15th using steps 1, 2, and 3.
 The Edge Error is defined as the absolute error ratio of the number of edges in the predicted graph compared to the actual graph; where: (Predicted Edge Count - Actual Edge Count) / Actual Edge Count
 The Node Error is defined as the absolute error ratio of the number of Nodes in the predicted graph compared to the actual graph; where: (Predicted Node Count - Actual Node Count) / Actual Node Count
 
