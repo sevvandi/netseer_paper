@@ -1,34 +1,28 @@
 ---
-title: 'Netseer: A Python and R package for Predicting Graph Structure via Adapted Flux Balance Analysis'
+title: 'Netseer: Python and R package for Predicting Graph Structure via Adapted Flux Balance Analysis'
 tags:
   - Python
   - R
 authors:
   - name: Brodie Oldfield
     orcid: 0009-0000-4500-5006
-    equal-contrib: true
     affiliation: 1
-  - name: Auth 2
-    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
+  - name: Sevvandi Kandanaarachchi
     affiliation: 1
-  - name: Author with no affiliation
     corresponding: true # (This is how to denote the corresponding author)
+# TODO: do we list Ziqi Xu as well?
+  - name: Stefan Westerlund
+    affiliation: 1
+  - name: Conrad Sanderson
     affiliation: [1,2]
 affiliations:
- - name: Data61, CSIRO, Australia
+ - name: CSIRO, Australia
    index: 1
- - name: Secondary Affil if needed.
+ - name: Griffith University, Australia
    index: 2
-date: 17 November 2025
+date: xx November 2025
 bibliography: paper.bib
 ---
-
-# Notes
-
-*--BO: Delete Notes section when finished--*  
-[JOSS Guidelines](https://joss.readthedocs.io/en/latest/paper.html):  
-
-- Length: 250-1000 words.
 
 # Summary
 
@@ -121,29 +115,27 @@ In addition, the reduction percentage between the Last Seen method results and t
 
 |Step|Method|Edge Error|Node Error|
 |--|--|--:|--:|
-|1|Last Seen|50.48×10−3|33.45×10−3|
-| |Netseer|13.04×10−3|9.31×10−3|
+|1|Last Seen|50.48×10-3|33.45×10-3|
+| |Netseer|13.04×10-3|9.31×10-3|
 | |(Reduction)| 74.2% | 72.2%|
-|2|Last Seen|95.28×10−3|64.58×10−3|
-| |Netseer|23.53×10−3|17.89×10−3|
+|2|Last Seen|95.28×10-3|64.58×10-3|
+| |Netseer|23.53×10-3|17.89×10-3|
 | |(Reduction)| 75.3% | 72.3%|
-|3|Last Seen|137.41×10−3|94.41×10−3|
-| |Netseer|30.25×10−3|24.03×10−3|
+|3|Last Seen|137.41×10-3|94.41×10-3|
+| |Netseer|30.25×10-3|24.03×10-3|
 | |(Reduction)| 78.0% | 74.5%|
-|4|Last Seen|179.25×10−3|124.70×10−3|
-| |Netseer|33.62×10−3|32.11×10−3|
+|4|Last Seen|179.25×10-3|124.70×10-3|
+| |Netseer|33.62×10-3|32.11×10-3|
 | |(Reduction)| 81.2% | 74.3%|
-|5|Last Seen|226.59×10−3|163.19×10−3|
-| |Netseer|28.82×10−3|34.42×10−3|
+|5|Last Seen|226.59×10-3|163.19×10-3|
+| |Netseer|28.82×10-3|34.42×10-3|
 | |(Reduction)| 87.3% | 78.9%|
 :Table 2. Edge and Node Errors comparison between Last Seen and Netseer's FBA Adaption.\label{table:Step-Compare}
 
 # Acknowledgements
 
-**--BO: We would add any financial support here, if applicable.--**  
-**--BO: Or any general Acknowledgements--**  
-This software was financially supported by X with the intent of improving methods for Y.  
+This work has been supported in part by the Australian Research Council (ARC) Industrial Transformation Training Centre
+in Optimisation Technologies, Integrated Methodologies, and Applications (OPTIMA), Project ID IC200100009.
 
 # References
 
-**--BO: The cite for netseer is using the arxiv version. Update to full when published circa Nov-Dec--**
