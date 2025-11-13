@@ -11,7 +11,7 @@ authors:
     orcid: 0000-0002-0337-0395
     affiliation: 1
     corresponding: true # (This is how to denote the corresponding author)
-<!-- TODO: do we list Ziqi Xu as well?  ORCID: 0000-0003-1748-5801 -->
+# TODO: do we list Ziqi Xu as well?  ORCID: 0000-0003-1748-5801
   - name: Stefan Westerlund
     affiliation: 1
   - name: Conrad Sanderson
