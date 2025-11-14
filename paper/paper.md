@@ -33,7 +33,6 @@ The underlying algorithm is a combination of ARIMA time series modelling and an 
 
 TODO: summarise package features (eg. how many graphs can it handle, size of graphs, how many steps ahead can be predicted, etc)
 
-
 # Statement of need
 
 Many dynamic processes such as transport, electricity, telecommunication, and social networks
@@ -49,17 +48,17 @@ While there is work done on hierarchical forecasting [@hyndman2018forecasting],
 not much work is done when the the quantities of interest has dynamic network structure.)
 `netseer` uses FBA, a mathematical approach used widely in biochemistry for describing networks of chemical reactions.
 We have adapted FBA towards graph prediction [@predictingGraphStruc],
-which allows for graph prediction involving shrinking and growing in the number of vertices and edges between time-series steps,
+which allows for graph prediction involving growing in the number of vertices and edges between time-series steps,
 something that to our knowledge has not been studied before.  
 
 Our proposed software, `netseer`, combines time-series forecasting with Flux Balance Analysis (FBA) [@whatIsFlux; @patternsAndDynamics] to predict graph structures.
 
 Netseer predicts the graph structure in two steps.
-First, the node degrees at a future time step are predicted using standard time series methods.
-The degree forecasts include the degrees of new, unseen nodes.
-Then the predicted degrees, which correspond to edges are allocated to the nodes using Flux Balance Analysis,
-an optimisation method used in metabolic network reconstruction. 
-The technical details of the underlying algorithm are presented in 
+First, the vetex degrees at a future time step are predicted using standard time series methods.
+The degree forecasts include the degrees of new, unseen vertices.
+Then the predicted degrees, which correspond to edges are allocated to the vertices using Flux Balance Analysis,
+an optimisation method used in metabolic network reconstruction.
+The technical details of the underlying algorithm are presented in
 
 The purpose of `netseer` is to provide a novel yet low resource method of predicting graph structures
 for fields where modelling the future state of dynamic graphs is important,
@@ -70,11 +69,9 @@ With the intent of being as impactful as possible in various fields,
 `netseer` has been implemented as both a Python package and an R package for flexible adoption.
 
 `netseer` aims to be resource efficient, as it utilises a graph and constraint based methodology using FBA.
-Other contemporary approaches, such as DAMNETS [@damnets] and AGE [@age] typically use more resource intensive techniques like generative AI to process dynamic graphs.
-Generative AI approaches are more involved, requiring training data, fitting the model the to training data,
-and testing against metrics, which all introduce additional stages into the prediction process.
-As `netseer` doesn't require the use of training data or generative machine learning processes,
-it achieves the status of a resource efficient and less involved alternative.
+A common method for predicting dynamic graphs is by using expensive supervised machine learning algorithms.
+Contemporary machine learning approaches such as DAMNETS [@damnets] and AGE [@age] have strict requirements that constrain their application. They require training data which may not always be available, and a computationally expensive machine learning pipeline of training, fitting and testing which all introduce additional stages into the prediction process.
+As `netseer` doesn't require the use of training data or supervised machine learning processes, it achieves the status of a resource efficient and less involved alternative.  
 
 **--Links to other papers: [DAMNETS](https://arxiv.org/abs/2203.15009), [AGE](https://dl.acm.org/doi/10.1007/978-3-030-47426-3_34), [Meta Study with both](https://dl.acm.org/doi/10.1145/3642970.3655829)--**  
 **-AGE Seems to require access. --**  
@@ -147,22 +144,21 @@ The provided sample dataset consists of 15 graphs in a time series.
 The Table 1\ref{table:Step-Error} is created by loading the first 12 graphs into memory,
 then predicting the 13th, 14th and 15th using steps 1, 2, and 3.
 The Edge Error is defined as the absolute error ratio of the number of edges in the predicted graph compared to the actual graph; where: (Predicted Edge Count - Actual Edge Count) / Actual Edge Count
-The Node Error is defined as the absolute error ratio of the number of Nodes in the predicted graph compared to the actual graph; where: (Predicted Node Count - Actual Node Count) / Actual Node Count
+The Vertex Error is defined as the absolute error ratio of the number of Vertex in the predicted graph compared to the actual graph; where: (Predicted Vertex Count - Actual Vertex Count) / Actual Vertex Count
 
-|Step|Edge Error|Node Error|
+|Step|Edge Error|Vertex Error|
 |---------|----------:|----------:|
 |1        |5.88x10-3         |-4.16x10-3         |
 |2        |15.78x10-3         |-14.81x10-3         |
 |3        |4.16x10-3         |-30.30x10-3         |
 
-:Table 1. Edge and Node Errors per Predicted Step.\label{table:Step-Error}
+:Table 1. Edge and Vertex Errors per Predicted Step.\label{table:Step-Error}
 
-Testing on the Facebook Dataset [@facebook] can give a larger example, Table 2\ref{table:Step-Compare}[@netseer] compares the Edge and Node Error of FBA against the Last Seen graph. Where each step is re-calculated and averaged to account for randomisation.  
-*--BO: I have forgotten what the Last Seen graph is--*  
-*--BO:
-In addition, the reduction percentage between the Last Seen method results and the Netseer FBA adaption method results is shown.
+Testing on the Facebook Dataset [@facebook] can give a larger example, Table 2\ref{table:Step-Compare}[@netseer] compares the Edge and Vertex Error of FBA against the Last Seen graph. The Last Seen graph being the real graph before the prediction. To account for randomisation when generating predicted graphs, each step is re-calculated 10 times and averaged.  
+In addition, the reduction percentage between the Last Seen method results and the Netseer FBA adaption method results is shown.  
+**--BO: Check how many times the data is recalculated**
 
-|Step|Method|Edge Error|Node Error|
+|Step|Method|Edge Error|Vertex Error|
 |--|--|--:|--:|
 |1|Last Seen|50.48×10-3|33.45×10-3|
 | |Netseer|13.04×10-3|9.31×10-3|
@@ -179,12 +175,12 @@ In addition, the reduction percentage between the Last Seen method results and t
 |5|Last Seen|226.59×10-3|163.19×10-3|
 | |Netseer|28.82×10-3|34.42×10-3|
 | |(Reduction)| 87.3% | 78.9%|
-:Table 2. Edge and Node Errors comparison between Last Seen and Netseer's FBA Adaption.\label{table:Step-Compare}
+:Table 2. Edge and Vertex Errors comparison between Last Seen and Netseer's FBA Adaption.\label{table:Step-Compare}
 
 # Licensing and Availability
 
 The _Netseer_ package is licensed under the **TODO** license,
-with the source code available at GitHub (https://github.com/sevvandi/netseer).
+with the source code available at GitHub (<https://github.com/sevvandi/netseer>).
 We are open to feature requests and bug reports, as well as questions and concerns.
 
 # Acknowledgements
@@ -193,4 +189,3 @@ This work has been supported in part by the Australian Research Council (ARC) In
 in Optimisation Technologies, Integrated Methodologies, and Applications (OPTIMA), Project ID IC200100009.
 
 # References
-
