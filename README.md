@@ -1,49 +1,89 @@
-# Netseer repository
+# Graph Prediction Using Netseer
 
-This is a repository containing the code for both `netseer` R and `netseer` Python.
-This repository contains the:
+This repository contains the code for both the R and Python implementations of the `netseer` package.
 
-- Source code for the R implementation under `./netseer-r/`
-- Source code for the Python implementation under `./netseer-py/`
-- The JOSS paper files under `./paper/`
+- The `netseer-r` folder contains the source code for the R implementation
+- The `netseer-py` foldr contains the source code for the Python implementation
+- The `paper` folder contains the JOSS paper sources
 
-The source code for the R and Python versions is a direct drag and drop from their respective repositories as of 2025/10/03.
 
-## Installation
+# Installation - R
 
-### From a package repository
+Netseer can be installed directly from CRAN or via building from source.
 
-Both packages are available on CRAN and PYPI under `netseer`
+In either case, first ensure that a C++ compiler is available on your system and relevant R development files are also installed.
+If you are using Windows, install the [RTools](https://cran.r-project.org/bin/windows/Rtools/) toolchain.
+TODO: If you are using Ubuntu or Debian ...
+TODO: If you are using Fedora or Red Hat ...
+
+
+## Install from CRAN
+
+To install from CRAN, use the following command in the R shell:
+
+``` R
+install.packages("netseer")
+```
+
+## Install from source
+
+Netseer can be built from source using two ways.
+The first way is to build directly from GitHub using the _remotes_ package within the R shell:
+
+``` R
+install.packages("remotes")
+remotes::install_github("sevvandi/netseer_paper/netseer-r")
+```
+
+**TODO**: is the second local method eally necessary?
+
+Alternatively, the package can be built locally as follows.
+First, clone the `netseer_paper` repository on the command line:
 
 ```bash
-install.packages("netseer") # R
-pip install netseer # Python
+mkdir ~/netseer
+cd ~/netseer
+git clone https://github.com/sevvandi/netseer_paper.git
 ```
 
-### Building from source
+Then use the following command in the R shell:
 
-Download the repository:
-
-``` bash
-git clone git@github.com:sevvandi/netseer_paper.git
-cd netseer_paper
+```R
+remotes::install_local(path = "~/netseer/netseer_paper/netseer-r", dependencies = TRUE)
 ```
 
-Inside of the netseer_paper project root, either Python or R libraries can be built.
-Alternatively for R, the package can be built directly from GitHub using devtools (See R section below).
+&nbsp;
 
-#### Python
 
-The Python project assumes you are using uv.
-Installing directly from GitHub:
+
+# Installation - Python
+
+Netseer can be installed directly from PyPI or via building from source.
+
+To install from PyPI:
+
+```bash
+pip install netseer
+```
+
+There are two ways to build from source.
+First, ensure that the _uv_ tool is installed.
+
+The package can be built directly from GitHub via the following command:
 
 ```bash
 uv pip install "git+https://github.com:sevvandi/netseer_paper/netseer-py"
 ```
 
-For building netseer locally using uv:
+**TODO**: is the second local method eally necessary?
 
-``` bash
+Alternatively, the package can be built locally as follows.
+
+```bash
+mkdir ~/netseer
+cd ~/netseer
+git clone https://github.com/sevvandi/netseer_paper.git
+cd netseer_paper
 cd netseer-py
 uv sync
 uv build
@@ -51,33 +91,12 @@ uv build
 
 This will generate a wheel and tar inside dist/.
 In another UV project, you can then:
+(TODO: check and fix this command)
 
 ``` bash
-uv add --editable path/to/netseer_paper/netseer-py
+uv add --editable netseer_paper/netseer-py
 ```
 
 This will install netseer from the `./netseer_paper/netseer-py`.
 The `path/to/netseer_paper` can be relative e.g. `../netseer_paper`.
 
-#### R
-
-For R, the easiest method is building directly from GitHub using the remotes package:
-
-``` R
-install.packages("remotes")
-remotes::install_github("sevvandi/netseer-r/netseer_paper")
-```
-
-Afterwards, `netseer` should be accessible.
-
-For Windows, this will require [RTools](https://cran.r-project.org/bin/windows/Rtools/) as some of the R code is using C.  
-Linux installs may need a C compiler.
-
-For building netseer locally using R:
-
-``` R
-remotes::install_local(
-  path = "/path/to/netseer_paper/netseer-r",
-  dependencies = TRUE
-)
-```
