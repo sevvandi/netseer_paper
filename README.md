@@ -35,7 +35,7 @@ install.packages("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
-**TODO**: is the second local method eally necessary?
+**TODO**: is the second local method really necessary?
 
 Alternatively, the package can be built locally as follows.
 First, clone the `netseer_paper` repository on the command line:
@@ -75,7 +75,7 @@ The package can be built directly from GitHub via the following command:
 uv pip install "git+https://github.com:sevvandi/netseer_paper/netseer-py"
 ```
 
-**TODO**: is the second local method eally necessary?
+**TODO**: is the second local method really necessary?
 
 Alternatively, the package can be built locally as follows.
 
