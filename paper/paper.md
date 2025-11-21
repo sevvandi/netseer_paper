@@ -11,7 +11,6 @@ authors:
     orcid: 0000-0002-0337-0395
     affiliation: 1
     corresponding: true # (This is how to denote the corresponding author)
-# TODO: do we list Ziqi Xu as well?  ORCID: 0000-0003-1748-5801
   - name: Stefan Westerlund
     affiliation: 1
   - name: Conrad Sanderson
@@ -52,7 +51,7 @@ In the task of _link prediction_ (predicting the presence of links between verti
 it is assumed that vertices are assumed not to change between consecutive graphs (TODO: ref).
 In the task of _network time series prediction_,
 attributes of vertices are predicted while the structure of the network is assumed to be fixed and known (TODO: ref).
-Contemporary machine learning approaches such as DAMNETS [@damnets] and AGE [@age] 
+Recent neural network based approaches such as DAMNETS [@damnets] and AGE [@age] 
 employ computationally intensive pipelines and require large amounts of training data which may not always be available.
 
 **TODO:** sort out the refs.
@@ -76,7 +75,7 @@ The technical details of the underlying algorithm are given in[@predictingGraphS
 
 # Usage
 
-`Netseer` is provided as R and Python packages, available on CRAN [@netseerR] and PyPI [@netseerPy], respectively.
+`Netseer` is provided as R and Python packages, available on CRAN and PyPI, respectively.
 iGraph compatible graphs are loaded into memory as an ordered list,
 then the graph list is used for predictions.
 Both the Python and R implementations have methods for generating dummy data,
@@ -85,12 +84,10 @@ The dummy data can be generated with various constraints,
 such as exponential growth between time-series steps, or linear growth.
 (TODO: HUH??? where did this come from?)
 
-<!-- old figure commented out, as it's a mess -->
-<!-- ![A time-series graph growing, with a 1 step prediction by netseer.\label{fig:graph_grow}](assets/netseer.svg) -->
+![Example of graph prediction via Netseer.\label{fig:graph_grow}](assets/netseer_graph2.png)
 
-TODO: insert figure showing a sequence of real graphs (graph 1, 5, 10, 15), and predicted graph 15
 
-TODO: use plain PDF for the figure; do not use SVG as that slows down compilation and requires conversion
+<!-- TODO: insert figure showing a sequence of real graphs (graph 1, 5, 10, 15), and predicted graph 15 -->
 
 # Examples
 
