@@ -11,6 +11,7 @@ authors:
     orcid: 0000-0002-0337-0395
     affiliation: 1
     corresponding: true # (This is how to denote the corresponding author)
+# TODO: do we list Ziqi Xu as well?  ORCID: 0000-0003-1748-5801
   - name: Stefan Westerlund
     affiliation: 1
   - name: Conrad Sanderson
@@ -33,7 +34,6 @@ a technique originating from biochemistry used for reconstructing metabolic netw
 _Netseer_ is able to predict both vertices and edges in the context of growing graphs
 while having low computational intensity and data requirements.
 
-
 # Statement of need
 
 Many dynamic processes such as transport, electricity, telecommunication, and social networks
@@ -51,15 +51,13 @@ In the task of _link prediction_ (predicting the presence of links between verti
 it is assumed that vertices are assumed not to change between consecutive graphs (TODO: ref).
 In the task of _network time series prediction_,
 attributes of vertices are predicted while the structure of the network is assumed to be fixed and known (TODO: ref).
-Recent neural network based approaches such as DAMNETS [@damnets] and AGE [@age] 
-employ computationally intensive pipelines and require large amounts of training data which may not always be available.
+Contemporary machine learning approaches such as DAMNETS [@damnets] and AGE [@age]
+employ computationally intensive deep neural network ipelines and require large amounts of training data which may not always be available.
 
 **TODO:** sort out the refs.
 [DAMNETS](https://arxiv.org/abs/2203.15009),
 [AGE](https://dl.acm.org/doi/10.1007/978-3-030-47426-3_34),
 [Meta Study with both](https://dl.acm.org/doi/10.1145/3642970.3655829)--**  
-
-
 
 # Implementation
 
@@ -68,49 +66,58 @@ This is achieved via exploiting standard time series modelling in conjunction wi
 FBA is a mathematical approach used widely in biochemistry for describing networks of chemical reactions.
 
 Netseer predicts the graph structure in two steps.
-First, the vetex degrees at a future time step are predicted using standard time series methods.
+First, the vertex degrees at a future time step are predicted using standard time series methods.
 The degree forecasts include the degrees of new, unseen vertices.
 Then the predicted degrees, which correspond to edges are allocated to the vertices using FBA.
 The technical details of the underlying algorithm are given in[@predictingGraphStruc]
 
 # Usage
 
-`Netseer` is provided as R and Python packages, available on CRAN and PyPI, respectively.
+`Netseer` is provided as R and Python packages, available on CRAN [@netseerR] and PyPI [@netseerPy], respectively.
 iGraph compatible graphs are loaded into memory as an ordered list,
-then the graph list is used for predictions.
-Both the Python and R implementations have methods for generating dummy data,
-and the Python implementation has helper functions for loading graphs from local directories.
+then the graph list is used for predictions. When predicting, a weight option ranging from 1 to 8 can be selected which affects the edge weights. Edge weights are used by the predicting function to put more emphasis on certain edges, such as older edges having less weight and therefore influence on the prediction. A full explanation of the weight options can be found here: TODO: (Add Link, currently there is a small description in predict graph function).
+Both the Python and R implementations have methods for generating dummy data and loading user supplied data from the filesystem.
 The dummy data can be generated with various constraints,
 such as exponential growth between time-series steps, or linear growth.
-(TODO: HUH??? where did this come from?)
+(TODO: HUH??? where did this come from?)  
+TODO: Brodie: In R there is 2 generator functions. generate_graph_linear() and generate_graph_exp(). I think in Python only one (Linear) was implemented due to time constraints.  
 
-![Example of graph prediction via Netseer.\label{fig:graph_grow}](assets/netseer_graph2.png)
+<!-- old figure commented out, as it's a mess -->
+<!-- ![A time-series graph growing, with a 1 step prediction by netseer.\label{fig:graph_grow}](assets/netseer.svg) -->
+![A time-series graph growing, with a 1 step prediction by netseer.\label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
 
+TODO: insert figure showing a sequence of real graphs (graph 1, 5, 10, 15), and predicted graph 15
 
-<!-- TODO: insert figure showing a sequence of real graphs (graph 1, 5, 10, 15), and predicted graph 15 -->
+TODO: use plain PDF for the figure; do not use SVG as that slows down compilation and requires conversion
 
 # Examples
 
-Loading a set of graphs from GML files, then predicting a one step into the future.
+The examples detail the steps in both R and Python to generate a random time series graph list, predict the next graph by one step, and then compare the predicted graph to the actual graph.
 
 ## R
 
 **TODO:** need to show a self-contained program
 
 ``` R
-%% using the iGraph package, load the time-series graphs into a list
-graphlist = list()
-file_paths = list.files(pattern = "^*.gml$")
-for (file in file_paths) {
-  tempGraph <- read_graph(file, format ="gml")
-  graphlist <- append(graphlist, tempGraph)
+graphlist <- list()
+%% Create the first graph.
+graphlist[[1]] <- gr <-  igraph::sample_pa(5, directed = FALSE)
+
+%% Generate 19 graphs using the first graph. Resulting in 20 graphs total.
+for(i in 2:20){
+ gr <-  generate_graph_exp(gr, 
+  del_edge = 0.1, 
+  new_nodes = 0.1, 
+  edge_increase = 0.1)
+ graphlist[[i]] <- gr
 }
 
-%% predict graph one step ahead
-grpred_1 <- predict_graph(graphlist[1:length(graphlist)],h = 1) 
+%% Predict graph one step into the future. Excluding the 20th graph for comparison.
+%% weights_opt 5 causes older edges to have less weight.
+pred_1 <- predict_graph(graphlist[1:19], h = 1, weights_opt = 5)
 
-%% predict graph five steps ahead
-grpred_2 <- predict_graph(graphlist[1:length(graphlist)],h = 5) 
+%% Compare the predicted 20th graph with the actual 20th graph.
+measure_error(graphlist[[20]], pred_1)
 ```
 
 ## Python
@@ -131,7 +138,6 @@ predicted_graph_5 = predict.predict_graph(graph_list, h=5)
 
 `path_to_graphs` is a list of paths to be loaded into memory.  
 Increase `h` to predict more steps into the future.
-
 
 ## Graph Examples
 
