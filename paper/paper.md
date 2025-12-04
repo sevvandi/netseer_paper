@@ -30,7 +30,7 @@ bibliography: paper.bib
 
 _Netseer_ is an open-source package for both R and Python that models a temporal sequence of graphs and predicts graph structures at future time steps.
 The underlying algorithm is a combination of time series modelling combined with an adapted form of Flux Balance Analysis (FBA),
-a technique originating from biochemistry used for reconstructing metabolic networks from partial information [@whatIsFlux; @patternsAndDynamics].
+a technique originating from biochemistry used for reconstructing metabolic networks from partial information [@whatIsFlux].
 _Netseer_ is able to predict both vertices and edges in the context of growing graphs
 while having low computational intensity and data requirements.
 
@@ -44,28 +44,40 @@ Modelling the dynamics can be used for predicting graphs at future time steps,
 which in turn facilitates applications such as the detection of anomalous graphs via differences between observed and predicted graphs.
 The anomalous graphs may represent events of interest, including network overloads, cyber attacks, and car accidents.
 
+Current approaches to graph prediction have notable limitations
+such as assuming that vertices do not to change between consecutive graphs and that only the edges change [@TODO],
+or employ computationally expensive deep generative models that also require large amounts of training data [@Clarkson_2022,@Fan_2020].
+In many practical situations only modest computational capacity is typically available
+and the amount of training data can be necessarily limited.
+
+<!--
 Existing approaches related to graph prediction have notable shortcomings,
 including limitations in processing of vertices and edges,
 requiring large amounts of training data,
 or being computationally expensive.
+-->
+
+<!--
 In the task of _link prediction_ (predicting the presence of links between vertices),
 it is assumed that vertices are assumed not to change between consecutive graphs (TODO: ref).
 In the task of _network time series prediction_,
 attributes of vertices are predicted while the structure of the network is assumed to be fixed and known (TODO: ref).
 Recent deep generative model based approaches such as DAMNETS [@Clarkson_2022] and AGE [@Fan_2020]
 employ computationally intensive pipelines and require large amounts of training data which may be infeasible to obtain.
+-->
 
+<!--
 **TODO:** sort out the refs.
 [DAMNETS](https://arxiv.org/abs/2203.15009),
 [AGE](https://dl.acm.org/doi/10.1007/978-3-030-47426-3_34),
 [Meta Study with both](https://dl.acm.org/doi/10.1145/3642970.3655829)--**  
-
+-->
 
 # Implementation
 
 `Netseer` aims to be both computationally efficient and have low training data requirements.
 This is achieved via exploiting standard time series modelling in conjunction with an adapted form of FBA.
-FBA is a mathematical approach used widely in biochemistry for describing networks of chemical reactions.
+a method used in biochemistry for reconstructing metabolic networks from partial information [@whatIsFlux].
 
 Netseer predicts the graph structure in two steps.
 First, the vertex degrees at a future time step are predicted using standard time series methods.
