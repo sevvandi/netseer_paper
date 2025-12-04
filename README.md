@@ -7,6 +7,12 @@ This repository contains the code for both the R and Python implementations of t
 - The `paper` folder contains the JOSS paper sources
 
 
+**TODO:** move all R installation instructions to the `netseer-r` directory
+
+**TODO:** move all Python installation instructions to the `netseer-py` directory
+
+
+
 # Installation - R
 
 Netseer can be installed directly from CRAN or via building from source.
