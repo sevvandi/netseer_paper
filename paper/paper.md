@@ -52,8 +52,8 @@ In the task of _link prediction_ (predicting the presence of links between verti
 it is assumed that vertices are assumed not to change between consecutive graphs (TODO: ref).
 In the task of _network time series prediction_,
 attributes of vertices are predicted while the structure of the network is assumed to be fixed and known (TODO: ref).
-Recent neural network based approaches such as DAMNETS [@damnets] and AGE [@age]
-employ computationally intensive pipelines and require large amounts of training data which may not always be available.
+Recent deep generative model based approaches such as DAMNETS [@Clarkson_2022] and AGE [@Fan_2020]
+employ computationally intensive pipelines and require large amounts of training data which may be infeasible to obtain.
 
 **TODO:** sort out the refs.
 [DAMNETS](https://arxiv.org/abs/2203.15009),
