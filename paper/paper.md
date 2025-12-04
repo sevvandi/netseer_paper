@@ -80,11 +80,13 @@ This is achieved via exploiting standard time series modelling in conjunction wi
 a method used in biochemistry for reconstructing metabolic networks from partial information [@whatIsFlux].
 
 Netseer predicts the graph structure in two steps.
-First, the vertex degrees at a future time step are predicted using standard time series methods.
-The degree forecasts include the degrees of new, unseen vertices.
-Then the predicted degrees, which correspond to edges are allocated to the vertices using FBA.
-The technical details of the underlying algorithm are given in [@predictingGraphStruc]
-
+In the first step,
+standard time series methods are used to model and predict the evolution of vertex degrees (TODO: add brief explanation of what is a vertex degree).
+The degree predictions include the degrees of new, unseen vertices.
+In the second step,
+the predicted degrees, which correspond to edges, are allocated to the vertices using FBA.
+A thorough explanation of the modelling and prediction approach is given in [@predictingGraphStruc].
+(TODO: update ref).
 
 # Usage
 
