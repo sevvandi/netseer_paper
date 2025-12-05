@@ -26,7 +26,7 @@ def predict_num_nodes(
     print(f"{node_counts=}")
     conf_lower = None
     conf_upper = None
-    if num_graphs < 15:
+    if num_graphs < 10:
         # r: number of nodes = m * time step
         # python: number of nodes = m * time stop + c
         exogenous = statsmodels.tools.tools.add_constant(

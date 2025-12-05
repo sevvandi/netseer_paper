@@ -19,7 +19,7 @@ The methodology is explained in the preprint (Kandanaarachchi et al. 2025).
 This package is available on PyPI, and can be installed with PIP or with a Package Manager:
 
 ``` Bash
-pip install netseer # or uv add netseer
+pip install netseer
 ```
 
 ## Quick Example
@@ -27,9 +27,9 @@ pip install netseer # or uv add netseer
 Generating an example graph list:
 
 ``` Python
-from netseer import generate_graph
+from netseer import graph_generation
 
-graph_list = generate_graph.generate_graph_list()
+graph_list = graph_generation.generate_graph_linear()
 ```
 
 The `generate_graph_list()` function has parameters for templating what types of graphs to generate. Information about these can be found in the reference docs.
@@ -37,14 +37,36 @@ The `generate_graph_list()` function has parameters for templating what types of
 Predicting on that graph:
 
 ``` Python
-from netseer import prediction
+from netseer import network_prediction
 
-predict = prediction.predict_graph(graph_list, h=1)
+predict = network_prediction.predict_graph(graph_list, h=1)
 ```
 
 Increasing the `h` parameter increases how many steps into the future the prediction is, with `h=1` being 1 step in the graph sequence.
 
 ## References
+
+### network_prediction
+
+- predict_graph()
+
+### graph_generation
+
+- generate_graph_linear()
+- generate_graph_exp()
+
+### read_graphs
+
+- read_graph_list()
+- read_pickled_list()
+
+### measure_error
+
+- measure_error()
+
+### functions
+
+## Citation
 
 Kandanaarachchi, Sevvandi, Ziqi Xu, Stefan Westerlund, and Conrad Sanderson. 2025.
   “Predicting Graph Structure via Adapted Flux Balance Analysis.” <https://arxiv.org/abs/2507.05806>.
