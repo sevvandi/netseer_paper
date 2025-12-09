@@ -38,7 +38,7 @@ install_packages("netseer")
 
 **TODO:** reduce example to only the following: (i) load 20 pre-generated graphs, (ii) use first 19 to predict the 20th graph, (iii) measure error between real and predicted 20th graph
 
-
+**TODO:** the pre-generated graphs should be in a standard format, preferably not specific to R.  a format that can also be opened in Python or other tools.
 
 To get started with `netseer`, there are 3 ways of loading graphs for processing.
 
