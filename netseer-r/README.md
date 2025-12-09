@@ -5,6 +5,7 @@
 `netseer` predicts the graph structure including new vertices and edges from a time series of graphs.
 It adapts Flux Balance Analysis, a method used in metabolic network reconstruction
 to predict the structure of future graphs.
+Technical details of the approach are given in **TODO:** add ref.
 
 ## Installation
 
@@ -33,7 +34,7 @@ install_packages("netseer")
 **TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
 
 
-## Quick Example
+## Examples
 
 **TODO:** In a quick example, it's best not to have 3 options, but only 1 option.  Other options can be as separate examples.
 
