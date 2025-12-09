@@ -29,8 +29,8 @@ bibliography: paper.bib
 # Summary
 
 _Netseer_ is an open-source package for both R and Python that models a temporal sequence of graphs and predicts graph structures at future time steps.
-The underlying algorithm is a combination of time series modelling combined with an adapted form of Flux Balance Analysis (FBA),
-a technique originating from biochemistry used for reconstructing metabolic networks from partial information [@whatIsFlux].
+The underlying algorithm is comprised of time series modelling combined with an adapted form of Flux Balance Analysis (FBA),
+a technique originating from biochemistry used for reconstructing metabolic networks from partial information [@Orth_2010].
 _Netseer_ is able to predict both vertices and edges in the context of growing graphs
 while having low computational intensity and data requirements.
 
