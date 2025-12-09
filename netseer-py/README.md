@@ -27,11 +27,15 @@ pip install netseer
 
 ## Available Functions
 
-* `read_graph_list()`  - load user provded graphs
-* `predict_graph()` - predict the next graph in a sequence
-* `measure_error()`  - return the vertex error and edge error between two graphs
-* `generate_graph_linear()`  - generate a time series of random graphs that grow linearly
-* `generate_graph_exp()` - generate a time series of random graphs that grow exponentially
+| Function                  | Summary                                                         |
+| ---                       | ---                                                             |
+| `read_graph_list()`       | load user provded graphs                                        |
+| `predict_graph()`         | predict the next graph in a sequence                            |
+| `measure_error()`         | return the vertex error and edge error between two graphs       |
+| `generate_graph_linear()` | generate a time series of random graphs that grow linearly      |
+| `generate_graph_exp()`    | generate a time series of random graphs that grow exponentially |
+
+Documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link documentation PDF)
 
 
 ## Example - TODO
