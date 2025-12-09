@@ -45,10 +45,15 @@ which in turn facilitates applications such as the detection of anomalous graphs
 The anomalous graphs may represent events of interest, including network overloads, cyber attacks, and car accidents.
 
 Current approaches to graph prediction have notable limitations
-such as assuming that vertices do not to change between consecutive graphs and that only the edges change [@TODO],
+such as assuming that vertices do not to change between consecutive graphs and that only the edges change [@Kumar_2020],
 or employ computationally expensive deep generative models that may require large amounts of training data [@Clarkson_2022,@Fan_2020].
-In many practical situations only modest computational capacity is typically available
-and the amount of training data can be necessarily limited.
+In many practical situations access to high-performance computational resources can be limited
+and large amounts of training data may be infeasible to obtain.
+
+The `Netseer` package aims to be both computationally efficient and have low training data requirements,
+allowing execution on standard desktop computers.
+This is achieved via exploiting time series modelling in conjunction with an adapted form of FBA [@Orth_2010,@Sahu_2021].
+A comprehensive description of the prediction algorithm is given in [@Kandan_2026].
 
 <!--
 Existing approaches related to graph prediction have notable shortcomings,
@@ -57,49 +62,28 @@ requiring large amounts of training data,
 or being computationally expensive.
 -->
 
-<!--
-In the task of _link prediction_ (predicting the presence of links between vertices),
-it is assumed that vertices are assumed not to change between consecutive graphs (TODO: ref).
-In the task of _network time series prediction_,
-attributes of vertices are predicted while the structure of the network is assumed to be fixed and known (TODO: ref).
-Recent deep generative model based approaches such as DAMNETS [@Clarkson_2022] and AGE [@Fan_2020]
-employ computationally intensive pipelines and require large amounts of training data which may be infeasible to obtain.
--->
 
-<!--
-**TODO:** sort out the refs.
-[DAMNETS](https://arxiv.org/abs/2203.15009),
-[AGE](https://dl.acm.org/doi/10.1007/978-3-030-47426-3_34),
-[Meta Study with both](https://dl.acm.org/doi/10.1145/3642970.3655829)--**  
--->
+# Functionality
 
-# Implementation
-
-The `Netseer` package aims to be both computationally efficient and have low training data requirements.
-This is achieved via exploiting time series modelling in conjunction with an adapted form of Flux Balance Analysis [@Orth_2010].
-A comprehensive description of the prediction algorithm is given in [@Kandan_2026].
-
-In brief, _Netseer_ predicts the graph structure in two steps.
+_Netseer_ is provided as two separate implementations in R and Python, available on CRAN and PyPI, respectively.
+iGraph compatible graphs are loaded into memory as an ordered list, representing a time series of graphs.
+The given graph list is then used for generating predicted graphs at future time steps in the time series.
+Internally, the graph structure is predicted in two steps.
 In the first step,
 standard time series methods are used to model and predict the evolution of vertex degrees (TODO: add brief explanation of what is a vertex degree).
 The degree predictions include the degrees of new, unseen vertices.
 In the second step,
 the predicted degrees, which correspond to edges, are allocated to the vertices using FBA.
 
+There are various options, including the time step of the prediction and selection of weight methods,
+which are used to emphasise or de-emphasise certain edges.
+For example, older edges can be assigned a lower weight and hence reduce their influence during prediction.
+An explanation of the weight options is given in the associated documentation **TODO: rephrase** 
 
-# Usage
 
-`Netseer` is provided as R and Python packages, available on CRAN and PyPI, respectively.
-iGraph compatible graphs are loaded into memory as an ordered list, representing a time series of graphs.
-The given graph list is then used by Netseer for generating predicted graphs at future time steps in the time series.
+<!-- The weight methods affect how edge weights are calculated. -->
 
-There are various options, such as the time step and selection of weight methods.
-The weight methods (ranging from 1 to 8) affects the edge weights.
-Edge weights are used by the predicting function to put more emphasis on certain edges,
-such as older edges having lower weight and therefore lower influence on the prediction.
-A full explanation of the weight options can be found here: TODO: (Add Link, currently there is a small description in predict graph function).
-
-Both the Python and R implementations have methods for generating dummy data and loading user supplied data from the filesystem.
+Both the Python and R implementations have methods for loading user supplied data from the filesystem and generating synthetic graphs.
 The dummy data can be generated with various constraints,
 such as exponential growth between time-series steps, or linear growth.
 (TODO: HUH??? where did this come from?)  
@@ -108,7 +92,7 @@ TODO: Brodie: In R there is 2 generator functions. generate_graph_linear() and g
 ![Example of a time series with growing graphs, followed by a 1 step prediction by Netseer.\label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
 
 
-# Examples
+# Example in R
 
 The examples detail the steps in both R and Python to generate a random time series graph list,
 predict the next graph by one step,
@@ -116,8 +100,6 @@ and then compare the predicted graph to the actual graph.
 
 TODO: Change this to loading real graphs instead of generating random graphs.  Real graphs demonstrate practical usage, while random graphs are only useful for writing technical papers.
 
-
-## R
 
 **TODO:** need to show a self-contained program
 
@@ -143,7 +125,7 @@ pred_1 <- predict_graph(graphlist[1:19], h = 1, weights_opt = 5)
 measure_error(graphlist[[20]], pred_1)
 ```
 
-## Python
+# Example in Python
 
 **TODO:** need to show a self-contained program
 
