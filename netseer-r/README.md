@@ -10,7 +10,7 @@ A comprehensive description of the algorithm is given in:
   Lecture Notes in Computer Science (LNCS), Vol.&nbsp;16370, 2026.  
   DOI: [10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27); arXiv: [2507.05806](https://arxiv.org/abs/2507.05806)
 
-## Installation
+## Installation - TODO
 
 The `netseer` package is available for installation via CRAN:
 
@@ -21,23 +21,18 @@ install_packages("netseer")
 **TODO:** show how to install from GitHub
 
 
-## Available Functions
+## Available Functions - TODO
 
-- `read_graph_list()`  
-  Load into memory user defined graphs.  
-- `predict_graph()`  
-  Predict the next graph in a sequence.  
-- `measure_error()`  
-  Returns the vertex error and edge error of two graphs.  
-- `generate_graph_linear()`  
-  Randomly generate a set of time series graphs that grow linearly.  
-- `generate_graph_exp()`  
-  Randomly generate a set of time series graphs that grow exponentially.  
+* `read_graph_list()`  - load user provded graphs
+* `predict_graph()` - predict the next graph in a sequence
+* `measure_error()`  - return the vertex error and edge error between two graphs
+* `generate_graph_linear()`  - generate a time series of random graphs that grow linearly
+* `generate_graph_exp()` - generate a time series of random graphs that grow exponentially
 
-**TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
+Documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
 
 
-## Examples
+## Examples - TODO
 
 **TODO:** reduce example to only the following: (i) load 20 pre-generated graphs, (ii) use first 19 to predict the 20th graph, (iii) measure error between real and predicted 20th graph
 
