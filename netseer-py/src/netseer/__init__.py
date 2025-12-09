@@ -10,20 +10,18 @@ Internally used Modules:
     netseer: Used for running via CLI for testing
 """
 
-from netseer import (
-    functions,
-    data,
-    graph_generation,
-    measure_error,
-    network_prediction,
-    read_graphs,
-)
+from .functions import *
+from .read_graphs import *
+from .graph_generation import *
+from .measure_error import *
+from .network_prediction import *
+from .data import *
 
-__all__ = [
-    "functions",
-    "data",
-    "graph_generation",
-    "measure_error",
-    "network_prediction",
-    "read_graphs",
-]
+# __all__ = [
+#     "functions",
+#     "data",
+#     "graph_generation",
+#     "measure_error",
+#     "network_prediction",
+#     "read_graphs",
+# ]

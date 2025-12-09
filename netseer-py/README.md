@@ -1,22 +1,15 @@
 # Netseer
 
-NOTE: For installation instructions from the netseer_paper repository, refer to `/netseer_paper/README.md`.  
-This README is a direct copy from the original [GitHub repository](https://github.com/sevvandi/netseer-python).  
-The instructions are still up to date, but doesn't cover paper specific tasks like building from source.
-
 ## Predicting graph structure from a time series of graphs
 
-This is a Python implementation of [*netseer*](https://arxiv.org/abs/2507.05806).  
-Netseer is a tool that outputs a predicted graph based on a time series graph sequence
-
-## Purpose
-
-The goal of netseer is to predict the graph structure including new nodes and edges from a time series of graphs.  
-The methodology is explained in the preprint (Kandanaarachchi et al. 2025).
+`netseer` predicts the graph structure including new nodes and edges from
+a time series of graphs. It adapts Flux Balance Analysis, a method used
+in metabolic network reconstruction to predict the structure of future
+graphs.
 
 ## Installation
 
-This package is available on PyPI, and can be installed with PIP or with a Package Manager:
+This package is available for installation on PyPI:
 
 ``` Bash
 pip install netseer
@@ -24,49 +17,49 @@ pip install netseer
 
 ## Quick Example
 
+Note: Function descriptions are in under [Available Functions](#available-functions).  
+Comprehensive Function descriptions can be found under TODO  
+
 Generating an example graph list:
 
+The `generate_graph_list()` function has parameters for templating what types of graphs to generate.  
+
 ``` Python
-from netseer import graph_generation
+import netseer as ns
 
-graph_list = graph_generation.generate_graph_linear()
+# generate 20 graphs.
+graph_list = ns.generate_graph_linear(num_iters = 20)
 ```
-
-The `generate_graph_list()` function has parameters for templating what types of graphs to generate. Information about these can be found in the reference docs.
 
 Predicting on that graph:
 
-``` Python
-from netseer import network_prediction
+For predicting using the `predict_graph()` function, increasing the `h` parameter increases how many steps into the future the prediction is, with `h=1` being 1 step in the graph sequence. For the below example, we're using the first 19th graphs to predict the 20th.  
 
-predict = network_prediction.predict_graph(graph_list, h=1)
+The `weights_option` parameter changes the method used to predict the graph. A `weights_option` of 5 causes older edge weights from earlier graphs to have less weight in the prediction.  
+
+``` Python
+# Using the first 19 graphs, predict the 20th.
+predicted_graph = ns.predict_graph(
+                                graph_list[0:18], 
+                                h=1, 
+                                weights_option = 5)
 ```
 
-Increasing the `h` parameter increases how many steps into the future the prediction is, with `h=1` being 1 step in the graph sequence.
+Now use `measure_error` to compare the 20th Actual graph with the Predicted 20th graph by generating metrics. The metrics are vertex_error and edge_error, which shows how close the number of vertices and edges are between graphs. The closer to zero the better performing the prediction was.  
 
-## References
+``` Python
+vertex_error, edge_error = ns.measure_error(graph_list[19], predicted_graph)
+```
 
-### network_prediction
+## Available Functions
 
-- predict_graph()
-
-### graph_generation
-
-- generate_graph_linear()
-- generate_graph_exp()
-
-### read_graphs
-
-- read_graph_list()
-- read_pickled_list()
-
-### measure_error
-
-- measure_error()
-
-### functions
-
-## Citation
-
-Kandanaarachchi, Sevvandi, Ziqi Xu, Stefan Westerlund, and Conrad Sanderson. 2025.
-  “Predicting Graph Structure via Adapted Flux Balance Analysis.” <https://arxiv.org/abs/2507.05806>.
+- [generate_graph_linear()](./src/netseer/graph_generation.R)  
+  Randomly generate a set of time series graphs that grow linearly.  
+- [generate_graph_exp()](./src/netseer/graph_generation.R)  
+  Randomly generate a set of time series graphs that grow exponentially.  
+- [predict_graph()](./src/netseer/network_prediction.py)  
+  Predict the next graph in a sequence.  
+- [read_graph_list()](./src/netseer/read_graphs.R)  
+  Load into memory user defined graphs.  
+- [measure_error()](./src/netseer/measure_error.R)  
+  Returns the vertex error and edge error of two graphs.  

@@ -2,32 +2,25 @@
 
 ## Predicting graph structure from a time series of graphs
 
-Netseer predicts the graph structure including new nodes and edges from
+`netseer` predicts the graph structure including new nodes and edges from
 a time series of graphs. It adapts Flux Balance Analysis, a method used
-in metabolic network reconstruction to predict the structue of future
-graphs. The methodology is explained in the preprint (Kandanaarachchi et
-al. 2025).
-
-## Purpose
-
-If you have a time series of dynamic graphs with changing structure, how
-would you predict future graphs? This is the goal of netseer.
+in metabolic network reconstruction to predict the structure of future
+graphs.
 
 ## Installation
 
-The algorithm is available in both R and Python. The R package `netseer`
-in on CRAN and can be installed as follows:
+The `netseer` package is available for installation via CRAN:
 
 ``` r
 install_packages("netseer")
 ```
 
-The vignette for the R package is available under \[Get Started\] at
-<https://sevvandi.github.io/netseer/>
-
 ## Quick Example
 
-To get started with Netseer, there are 3 ways of loading graphs for processing.
+Note: Function descriptions are in under [Available Functions](#available-functions).  
+Comprehensive Function descriptions can be found under the [Documentation PDF](./docs/netseer.pdf)  
+
+To get started with `netseer`, there are 3 ways of loading graphs for processing.
 
 - Option 1: Loading pre-generated graphs as a data source.
 - Option 2: Randomly generating a set number of graphs.
@@ -64,15 +57,19 @@ graph_list <- read_graph_list(path_to_graphs = path_to_graphs, format = "gml")
 
 Then, use either syngraph(Option 1), or graph_list(Option 2, 3) for predictions.  
 Set `h` for how many steps into the future you want the predicted graph to be.  
-In this example, we are using graphs 1 to 19 to predict 1 step into the future, therefore predicted graph 20.
+In this example, we are using graphs 1 to 19 to predict 1 step into the future, therefore predicted graph 20.  
+
+The `weights_opt` parameter changes the method used to predict the graph. A `weights_opt` of 5 causes older edge weights from earlier graphs to have less weight in the prediction.  
 
 ``` r
 % Replace 'syngraphs' with 'graph_list' if using Options 2 and 3.
-predicted_graph <- predict_graph(syngraphs[1:19], h=1)
+predicted_graph <- predict_graph(
+                                syngraphs[1:19], 
+                                h=1,
+                                weight_opt = 5)
 ```
 
-Generate metrics to compare graphs. The closer to zero the better.  
-Here we are comparing the 20th Actual graph with the Predicted 20th.
+Now use `measure_error` to compare the 20th Actual graph with the Predicted 20th graph by generating metrics. The metrics are vertex_error and edge_error, which shows how close the number of vertices and edges are between graphs. The closer to zero the better performing the prediction was.  
 
 ```r
 % Replace 'syngraphs' with 'graph_list' if using Options 2 and 3.
@@ -80,39 +77,15 @@ node_error, edge_error <- measure_error(syngraphs[[20]], predicted_graph)
 
 ```
 
-## References
+## Available Functions
 
-### network_prediction
-
-- predict_graph()
-
-### graph_generation
-
-- generate_graph_linear()
-- generate_graph_exp()
-
-### read_graphs
-
-- read_graph_list()
-- read_pickled_list()
-
-### measure_error
-
-- measure_error()
-
-### functions
-
-## Citation
-
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
-
-<div id="ref-kand2025graphpred" class="csl-entry">
-
-Kandanaarachchi, Sevvandi, Ziqi Xu, Stefan Westerlund, and Conrad
-Sanderson. 2025. “Predicting Graph Structure via Adapted Flux Balance
-Analysis.” <https://arxiv.org/abs/2507.05806>.
-
-</div>
-
-</div>
+- [generate_graph_linear()](./R/graph_generation.R)  
+  Randomly generate a set of time series graphs that grow linearly.  
+- [generate_graph_exp()](./R/graph_generation.R)  
+  Randomly generate a set of time series graphs that grow exponentially.  
+- [predict_graph()](./R/network_prediction.R)  
+  Predict the next graph in a sequence.  
+- [read_graph_list()](./R/read_graphs.R)  
+  Load into memory user defined graphs.  
+- [measure_error()](./R/measure_error.R)  
+  Returns the vertex error and edge error of two graphs.  
