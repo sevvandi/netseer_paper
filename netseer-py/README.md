@@ -1,15 +1,20 @@
-# Netseer
-
 **TODO:** after redoing netseer-r/README.md, redo netseer-py/README.md in the same fashion
 
-## Predicting graph structure from a time series of graphs
 
-`netseer` predicts the graph structure including new nodes and edges from
-a time series of graphs. It adapts Flux Balance Analysis, a method used
-in metabolic network reconstruction to predict the structure of future
-graphs.
+# Netseer
 
-## Installation
+_Netseer_ is a software package for predicting new graphs from a given time series of graphs.
+
+The underlying prediction algorithm combines time series modelling
+with an adapted form of Flux Balance Analysis, 
+an approach widely used in biochemistry for reconstructing metabolic networks from partial information.
+A comprehensive description of the algorithm is given in:
+* Predicting Graph Structure via Adapted Flux Balance Analysis.  
+  Lecture Notes in Computer Science (LNCS), Vol.&nbsp;16370, 2026.  
+  DOI: [10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27); arXiv: [2507.05806](https://arxiv.org/abs/2507.05806)
+
+
+## Installation - TODO
 
 This package is available for installation on PyPI:
 
@@ -17,10 +22,24 @@ This package is available for installation on PyPI:
 pip install netseer
 ```
 
-## Quick Example
+**TODO:** show how to install from GitHub (this repo)
 
-Note: Function descriptions are in under [Available Functions](#available-functions).  
-Comprehensive Function descriptions can be found under TODO  
+
+## Available Functions
+
+* `read_graph_list()`  - load user provded graphs
+* `predict_graph()` - predict the next graph in a sequence
+* `measure_error()`  - return the vertex error and edge error between two graphs
+* `generate_graph_linear()`  - generate a time series of random graphs that grow linearly
+* `generate_graph_exp()` - generate a time series of random graphs that grow exponentially
+
+
+## Example - TODO
+
+**TODO:** reduce example to only the following: (i) load 20 pre-generated graphs, (ii) use first 19 to predict the 20th graph, (iii) measure error between real and predicted 20th graph
+
+**TODO:** the pre-generated graphs should be in a standard format, preferably not specific to R.  a format that can also be opened in Python or other tools.
+
 
 Generating an example graph list:
 
@@ -53,15 +72,3 @@ Now use `measure_error` to compare the 20th Actual graph with the Predicted 20th
 vertex_error, edge_error = ns.measure_error(graph_list[19], predicted_graph)
 ```
 
-## Available Functions
-
-- [generate_graph_linear()](./src/netseer/graph_generation.R)  
-  Randomly generate a set of time series graphs that grow linearly.  
-- [generate_graph_exp()](./src/netseer/graph_generation.R)  
-  Randomly generate a set of time series graphs that grow exponentially.  
-- [predict_graph()](./src/netseer/network_prediction.py)  
-  Predict the next graph in a sequence.  
-- [read_graph_list()](./src/netseer/read_graphs.R)  
-  Load into memory user defined graphs.  
-- [measure_error()](./src/netseer/measure_error.R)  
-  Returns the vertex error and edge error of two graphs.  
