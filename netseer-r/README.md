@@ -2,10 +2,9 @@
 
 ## Predicting graph structure from a time series of graphs
 
-`netseer` predicts the graph structure including new nodes and edges from
-a time series of graphs. It adapts Flux Balance Analysis, a method used
-in metabolic network reconstruction to predict the structure of future
-graphs.
+`netseer` predicts the graph structure including new vertices and edges from a time series of graphs.
+It adapts Flux Balance Analysis, a method used in metabolic network reconstruction
+to predict the structure of future graphs.
 
 ## Installation
 
@@ -15,10 +14,26 @@ The `netseer` package is available for installation via CRAN:
 install_packages("netseer")
 ```
 
-## Quick Example
+**TODO:** show how to install from GitHub
 
-Note: Function descriptions are in under [Available Functions](#available-functions).  
-Comprehensive Function descriptions can be found under the [Documentation PDF](./docs/netseer.pdf)  
+
+## Available Functions
+
+- `generate_graph_linear()`  
+  Randomly generate a set of time series graphs that grow linearly.  
+- `generate_graph_exp()`  
+  Randomly generate a set of time series graphs that grow exponentially.  
+- `predict_graph()`  
+  Predict the next graph in a sequence.  
+- `read_graph_list()`  
+  Load into memory user defined graphs.  
+- `measure_error()`  
+  Returns the vertex error and edge error of two graphs.  
+
+**TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf)
+
+
+## Quick Example
 
 To get started with `netseer`, there are 3 ways of loading graphs for processing.
 
@@ -77,15 +92,3 @@ node_error, edge_error <- measure_error(syngraphs[[20]], predicted_graph)
 
 ```
 
-## Available Functions
-
-- [generate_graph_linear()](./R/graph_generation.R)  
-  Randomly generate a set of time series graphs that grow linearly.  
-- [generate_graph_exp()](./R/graph_generation.R)  
-  Randomly generate a set of time series graphs that grow exponentially.  
-- [predict_graph()](./R/network_prediction.R)  
-  Predict the next graph in a sequence.  
-- [read_graph_list()](./R/read_graphs.R)  
-  Load into memory user defined graphs.  
-- [measure_error()](./R/measure_error.R)  
-  Returns the vertex error and edge error of two graphs.  
