@@ -25,7 +25,7 @@ pip install netseer
 **TODO:** show how to install from GitHub (this repo)
 
 
-## Available Functions
+## Available Functions - TODO
 
 | Function                  | Summary                                                         |
 | ---                       | ---                                                             |
