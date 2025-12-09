@@ -36,11 +36,7 @@ install_packages("netseer")
 
 ## Examples
 
-**TODO:** In a quick example, it's best not to have 3 options, but only 1 option.  Other options can be as separate examples.
-
-**TODO:** provide a simple example that loads graphs and the predicts the next graph
-
-**TODO:** provide a second example that generates synthetic graphs and the predicts the next graph
+**TODO:** reduce example to only the following: (i) load 20 pre-generated graphs, (ii) use first 19 to predict the 20th graph, (iii) measure error between real and predicted 20th graph
 
 
 
