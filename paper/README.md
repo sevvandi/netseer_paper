@@ -6,7 +6,7 @@ The source code for _Netseer_ can be obtained via:
 * [`../netseer-py`](../netseer-py/) contains the Python implementation
 
 
-### PDF Generation
+### PDF Generation  (TODO: remove this section before submission)
 
 For collaborative editing purposes,
 the PDF for the JOSS paper is auto-generated via a GitHub Action when changes are detected in this folder.  
