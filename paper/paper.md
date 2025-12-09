@@ -46,7 +46,7 @@ The anomalous graphs may represent events of interest, including network overloa
 
 Current approaches to graph prediction have notable limitations
 such as assuming that vertices do not to change between consecutive graphs and that only the edges change [@TODO],
-or employ computationally expensive deep generative models that also require large amounts of training data [@Clarkson_2022,@Fan_2020].
+or employ computationally expensive deep generative models that may require large amounts of training data [@Clarkson_2022,@Fan_2020].
 In many practical situations only modest computational capacity is typically available
 and the amount of training data can be necessarily limited.
 
@@ -75,18 +75,17 @@ employ computationally intensive pipelines and require large amounts of training
 
 # Implementation
 
-`Netseer` aims to be both computationally efficient and have low training data requirements.
-This is achieved via exploiting standard time series modelling in conjunction with an adapted form of FBA.
-a method used in biochemistry for reconstructing metabolic networks from partial information [@whatIsFlux].
+The `Netseer` package aims to be both computationally efficient and have low training data requirements.
+This is achieved via exploiting time series modelling in conjunction with an adapted form of Flux Balance Analysis [@Orth_2010].
+A comprehensive description of the prediction algorithm is given in [@Kandan_2026].
 
-Netseer predicts the graph structure in two steps.
+In brief, _Netseer_ predicts the graph structure in two steps.
 In the first step,
 standard time series methods are used to model and predict the evolution of vertex degrees (TODO: add brief explanation of what is a vertex degree).
 The degree predictions include the degrees of new, unseen vertices.
 In the second step,
 the predicted degrees, which correspond to edges, are allocated to the vertices using FBA.
-A thorough explanation of the modelling and prediction approach is given in [@predictingGraphStruc].
-(TODO: update ref).
+
 
 # Usage
 
