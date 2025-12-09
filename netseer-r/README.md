@@ -18,16 +18,16 @@ The `netseer` package is available for installation via CRAN:
 install_packages("netseer")
 ```
 
-**TODO:** show how to install from GitHub
+**TODO:** show how to install from GitHub (this repo)
 
 
 ## Available Functions - TODO
 
-* `read_graph_list()`  - load user provded graphs
-* `predict_graph()` - predict the next graph in a sequence
-* `measure_error()`  - return the vertex error and edge error between two graphs
-* `generate_graph_linear()`  - generate a time series of random graphs that grow linearly
-* `generate_graph_exp()` - generate a time series of random graphs that grow exponentially
+| `read_graph_list()`       | load user provded graphs                                        |
+| `predict_graph()`         | predict the next graph in a sequence                            |
+| `measure_error()`         | return the vertex error and edge error between two graphs       |
+| `generate_graph_linear()` | generate a time series of random graphs that grow linearly      |
+| `generate_graph_exp()`    | generate a time series of random graphs that grow exponentially |
 
 Documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
 
