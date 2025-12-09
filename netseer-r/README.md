@@ -20,16 +20,16 @@ install_packages("netseer")
 
 ## Available Functions
 
+- `read_graph_list()`  
+  Load into memory user defined graphs.  
+- `predict_graph()`  
+  Predict the next graph in a sequence.  
+- `measure_error()`  
+  Returns the vertex error and edge error of two graphs.  
 - `generate_graph_linear()`  
   Randomly generate a set of time series graphs that grow linearly.  
 - `generate_graph_exp()`  
   Randomly generate a set of time series graphs that grow exponentially.  
-- `predict_graph()`  
-  Predict the next graph in a sequence.  
-- `read_graph_list()`  
-  Load into memory user defined graphs.  
-- `measure_error()`  
-  Returns the vertex error and edge error of two graphs.  
 
 **TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
 
