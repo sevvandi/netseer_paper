@@ -8,8 +8,7 @@ an approach widely used in biochemistry for reconstructing metabolic networks fr
 A comprehensive description of the algorithm is given in:
 * Predicting Graph Structure via Adapted Flux Balance Analysis.  
   Lecture Notes in Computer Science (LNCS), Vol.&nbsp;16370, 2026.  
-  DOI: [10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27)  
-  arXiv: [2507.05806](https://arxiv.org/abs/2507.05806)
+  DOI: [10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27); arXiv: [2507.05806](https://arxiv.org/abs/2507.05806)
 
 ## Installation
 
