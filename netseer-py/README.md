@@ -1,5 +1,7 @@
 # Netseer
 
+**TODO:** after redoing netseer-r/README.md, redo netseer-py/README.md in the same fashion
+
 ## Predicting graph structure from a time series of graphs
 
 `netseer` predicts the graph structure including new nodes and edges from
