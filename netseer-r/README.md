@@ -3,12 +3,13 @@
 _Netseer_ is a software package for predicting new graphs from a given time series of graphs.
 
 The underlying prediction algorithm is comprised of time series modelling
-combined with an adapted form of Flux Balance Analysis, a method originating from biochemistry.
+combined with an adapted form of Flux Balance Analysis, 
+an approach widely used in biochemistry to reconstruct metabolic networks from partial information.
 A comprehensive description of the algorithm is given in:
 * Sevvandi et al.
   Predicting Graph Structure via Adapted Flux Balance Analysis.
   Lecture Notes in Computer Science (LNCS), Vol. 16370, 2026.
-  [https://doi.org/10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27)
+  [DOI: 10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27)
 
 ## Installation
 
