@@ -23,6 +23,8 @@ install_packages("netseer")
 
 ## Available Functions - TODO
 
+| Function                  | Summary                                                         |
+| ---                       | ---                                                             |
 | `read_graph_list()`       | load user provded graphs                                        |
 | `predict_graph()`         | predict the next graph in a sequence                            |
 | `measure_error()`         | return the vertex error and edge error between two graphs       |
