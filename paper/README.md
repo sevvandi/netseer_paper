@@ -1,6 +1,6 @@
 This folder contains a Journal of Open Source Software (JOSS) submission for _Netseer_.
 
-The source code for _Netseer_ is available at:
+The source code for _Netseer_ can be obtained via:
 
 * [`../netseer-r`](../netseer-r/) contains the R implementation
 * [`../netseer-py`](../netseer-py/) contains the Python implementation
