@@ -30,10 +30,18 @@ install_packages("netseer")
 - `measure_error()`  
   Returns the vertex error and edge error of two graphs.  
 
-**TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf)
+**TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
 
 
 ## Quick Example
+
+**TODO:** In a quick example, it's best not to have 3 options, but only 1 option.  Other options can be as separate examples.
+
+**TODO:** provide a simple example that loads graphs and the predicts the next graph
+
+**TODO:** provide a second example that generates synthetic graphs and the predicts the next graph
+
+
 
 To get started with `netseer`, there are 3 ways of loading graphs for processing.
 
