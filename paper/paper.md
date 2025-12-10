@@ -39,20 +39,20 @@ _Netseer_ is able to predict both vertices and edges while having low computatio
 
 Many dynamic processes such as transport, electricity, telecommunication, and social networks
 can be represented through an ordered sequence of graphs, known as dynamic graphs.
-The graphs evolve over time through the addition and deletion of vertices (nodes) and/or edges (links between nodes) [@repLearning].
+The graphs evolve over time through the addition and deletion of vertices (nodes) and/or edges (links between nodes) [@repLearning] (TODO: replace arXiv pre-print with something better).
 Modelling the dynamics can be used for predicting graphs at future time steps,
 which in turn facilitates applications such as the detection of anomalous graphs via differences between observed and predicted graphs.
 The anomalous graphs may represent events of interest, including network overloads, cyber attacks, and car accidents.
 
 Current approaches to graph prediction have notable limitations
 such as assuming that vertices do not to change between consecutive graphs and that only the edges change [@Kumar_2020],
-or employ computationally expensive deep generative models that may require large amounts of training data [@Clarkson_2022][@Fan_2020].
+or employ computationally expensive deep generative models that may require large amounts of training data [@Clarkson_2022] [@Fan_2020].
 In many practical situations access to high-performance computational resources can be limited
 and large amounts of training data may be infeasible to obtain.
 
 The `Netseer` package aims to be both computationally efficient and have low training data requirements,
 allowing execution on standard desktop computers.
-This is achieved via exploiting time series modelling in conjunction with an adapted form of FBA [@Orth_2010][@Sahu_2021].
+This is achieved via exploiting time series modelling in conjunction with an adapted form of FBA [@Orth_2010] [@Sahu_2021].
 A comprehensive description of the prediction algorithm is given in [@Kandan_2026].
 
 <!--
