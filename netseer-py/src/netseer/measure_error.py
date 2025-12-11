@@ -1,7 +1,7 @@
 from typing import Tuple
 
 
-def measure_error(actual, predicted) -> Tuple[int, int]:
+def measure_error(actual, predicted) -> Tuple[float, float]:
     """Returns a tuple containing the Node and Edge error rates, comparing an Atual/Ground Truth Graph to a Predicted Graph.
 
     Args:
@@ -18,10 +18,10 @@ def measure_error(actual, predicted) -> Tuple[int, int]:
 def node_error(actual, predicted):
     num_nodes_actual = actual.vcount()
     num_nodes_predicted = predicted.vcount()
-    return (num_nodes_predicted - num_nodes_actual) / num_nodes_actual
+    return ((num_nodes_predicted - num_nodes_actual) / num_nodes_actual) * 100
 
 
 def edge_error(actual, predicted):
     num_edges_actual = actual.ecount()
     num_edges_predicted = predicted.ecount()
-    return (num_edges_predicted - num_edges_actual) / num_edges_actual
+    return ((num_edges_predicted - num_edges_actual) / num_edges_actual) * 100

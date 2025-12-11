@@ -18,7 +18,11 @@ The `netseer` package is available for installation via CRAN:
 install_packages("netseer")
 ```
 
+<<<<<<< HEAD
 Alternatively, `netseer` can be built from source from GitHub:  
+=======
+**TODO:** show how to install from GitHub (this repo)
+>>>>>>> refs/remotes/origin/main
 
 ``` r
 library(remotes)
@@ -27,6 +31,20 @@ remotes::install_github("sevvandi/netseer_paper/netseer-r")
 
 ## Available Functions - TODO
 
+<<<<<<< HEAD
+- `read_graph_list()`  
+  Load into memory user defined graphs.  
+- `predict_graph()`  
+  Predict the next graph in a sequence.  
+- `measure_error()`  
+  Returns a Tuple with the vertex error and edge error of two graphs.  
+- `generate_graph_linear()`  
+  Randomly generate a set of time series graphs that grow linearly.  
+- `generate_graph_exp()`  
+  Randomly generate a set of time series graphs that grow exponentially.  
+
+Full documentation for the above functions is available in the [Documentation PDF.](./docs/netseer.pdf)
+=======
 | Function                  | Summary                                                         |
 | ---                       | ---                                                             |
 | `read_graph_list()`       | load user provded graphs                                        |
@@ -37,6 +55,7 @@ remotes::install_github("sevvandi/netseer_paper/netseer-r")
 
 Documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link documentation PDF)
 
+>>>>>>> refs/remotes/origin/main
 
 ## Examples - TODO
 
