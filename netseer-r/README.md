@@ -3,14 +3,15 @@
 _Netseer_ is a software package for predicting new graphs from a given time series of graphs.
 
 The underlying prediction algorithm combines time series modelling
-with an adapted form of Flux Balance Analysis, 
+with an adapted form of Flux Balance Analysis,
 an approach widely used in biochemistry for reconstructing metabolic networks from partial information.
 A comprehensive description of the algorithm is given in:
+
 * Predicting Graph Structure via Adapted Flux Balance Analysis.  
   Lecture Notes in Computer Science (LNCS), Vol.&nbsp;16370, 2026.  
   DOI: [10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27); arXiv: [2507.05806](https://arxiv.org/abs/2507.05806)
 
-## Installation - TODO
+## Installation
 
 The `netseer` package is available for installation via CRAN:
 
@@ -25,7 +26,7 @@ library(remotes)
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
-## Available Functions - TODO
+## Available Functions
 
 | Function                  | Summary                                                         |
 | ---                       | ---                                                             |
@@ -35,16 +36,15 @@ remotes::install_github("sevvandi/netseer_paper/netseer-r")
 | `generate_graph_linear()` | generate a time series of random graphs that grow linearly      |
 | `generate_graph_exp()`    | generate a time series of random graphs that grow exponentially |
 
-Documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link documentation PDF)
+Documentation for the above functions is available in the [Documentation PDF](./docs/netseer.pdf)
 
-
-## Examples - TODO
+## Examples
 
 Example Goal:
 
-- Load 20 graphs from the file system.
-- Use graphs 1 to 19 to predict the 20th graph.
-- Compare the actual 20th graph to the newly predicted 20th graph.
+* Load 20 graphs from the file system.
+* Use graphs 1 to 19 to predict the 20th graph.
+* Compare the actual 20th graph to the newly predicted 20th graph.
 
 Before starting, download the `/data/` directory under `/netseer-paper/netseer-r/`. This directory contains 20 example graphs.  
 
