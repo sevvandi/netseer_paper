@@ -15,7 +15,12 @@ The `netseer` package is available for installation via CRAN:
 install_packages("netseer")
 ```
 
-**TODO:** show how to install from GitHub
+Alternatively, `netseer` can be built from source from GitHub:  
+
+``` r
+library(remotes)
+remotes::install_github("sevvandi/netseer_paper/netseer-r")
+```
 
 ## Available Functions
 
@@ -24,19 +29,15 @@ install_packages("netseer")
 - `predict_graph()`  
   Predict the next graph in a sequence.  
 - `measure_error()`  
-  Returns the vertex error and edge error of two graphs.  
+  Returns a Tuple with the vertex error and edge error of two graphs.  
 - `generate_graph_linear()`  
   Randomly generate a set of time series graphs that grow linearly.  
 - `generate_graph_exp()`  
   Randomly generate a set of time series graphs that grow exponentially.  
 
-**TODO:** Full documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link to netseer.pdf)
+Full documentation for the above functions is available in the [Documentation PDF.](./docs/netseer.pdf)
 
 ## Examples
-
-**TODO:** reduce example to only the following: (i) load 20 pre-generated graphs, (ii) use first 19 to predict the 20th graph, (iii) measure error between real and predicted 20th graph
-
-**TODO:** the pre-generated graphs should be in a standard format, preferably not specific to R.  a format that can also be opened in Python or other tools.
 
 Example Goal:
 
@@ -47,23 +48,19 @@ Example Goal:
 Before starting, download the `/data/` directory under `/netseer-paper/netseer-r/`. This directory contains 20 example graphs.  
 
 ``` r
-library(netseer)
+library("netseer")
 
-%% Create an Absolute or Relative path to the /data/ directory.
-%% Replace ./data/ with the path to the /data/ directory.
-path_to_graphs <- system.file("./data/", package = "netseer")
-graph_list <- read_graph_list(path_to_graphs = path_to_graphs, format = "gml")
+# Load 20 graphs from the /data/ directory.
+## Replace ./data/ in file.path with a path to the /data/ directory.
+path_to_graphs <- file.path("./data/")
+graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format = "gml")
 
-%% Predict the 20th graph using graphs 1 to 19.  
-%% A h value of 1 predicts 1 step into the future.
-predicted_graph <- predict_graph(
-                                graph_list[1:19], 
-                                h=1,
-                                weight_opt = 5)
+# Predict the 20th graph using graphs 1 to 19.  
+## A h value of 1 predicts 1 step into the future.
+predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt = 8, h=1)
 
-%% Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
-vertex_error, edge_error <- measure_error(graph_list[[20]], predicted_graph)
-print(vertex_error)
-print(edge_error)
-
+# Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
+vertex_err, edge_err <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
+print(vertex_err)
+print(edge_err)
 ```
