@@ -30,17 +30,17 @@ remotes::install_github("sevvandi/netseer_paper/netseer-r")
 
 | Function                  | Summary                                                         |
 | ---                       | ---                                                             |
-| `read_graph_list()`       | load user provded graphs                                        |
-| `predict_graph()`         | predict the next graph in a sequence                            |
-| `measure_error()`         | return the vertex error and edge error between two graphs       |
-| `generate_graph_linear()` | generate a time series of random graphs that grow linearly      |
-| `generate_graph_exp()`    | generate a time series of random graphs that grow exponentially |
+| `read_graph_list()`       | Load user provided graphs.                                        |
+| `predict_graph()`         | Predict the next graph in a sequence.                            |
+| `measure_error()`         | Return the vertex error and edge error between two graphs.       |
+| `generate_graph_linear()` | Generate a time series of random graphs that grow linearly.      |
+| `generate_graph_exp()`    | Generate a time series of random graphs that grow exponentially. |
 
 Documentation for the above functions is available in the [Documentation PDF](./docs/netseer.pdf)
 
-## Examples
+## Example
 
-Example Goal:
+Goal:
 
 * Load 20 graphs from the file system.
 * Use graphs 1 to 19 to predict the 20th graph.
