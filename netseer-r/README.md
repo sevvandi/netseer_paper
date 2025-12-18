@@ -22,7 +22,7 @@ install_packages("netseer")
 Alternatively, `netseer` can be built from source from GitHub:  
 
 ``` r
-library(remotes)
+library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
