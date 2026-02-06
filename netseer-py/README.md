@@ -1,18 +1,17 @@
 **TODO:** after redoing netseer-r/README.md, redo netseer-py/README.md in the same fashion
 
-
 # Netseer
 
 _Netseer_ is a software package for predicting new graphs from a given time series of graphs.
 
 The underlying prediction algorithm combines time series modelling
-with an adapted form of Flux Balance Analysis, 
+with an adapted form of Flux Balance Analysis,
 an approach widely used in biochemistry for reconstructing metabolic networks from partial information.
 A comprehensive description of the algorithm is given in:
+
 * Predicting Graph Structure via Adapted Flux Balance Analysis.  
   Lecture Notes in Computer Science (LNCS), Vol.&nbsp;16370, 2026.  
   DOI: [10.1007/978-981-95-4969-6_27](https://doi.org/10.1007/978-981-95-4969-6_27); arXiv: [2507.05806](https://arxiv.org/abs/2507.05806)
-
 
 ## Installation - TODO
 
@@ -22,8 +21,12 @@ This package is available for installation on PyPI:
 pip install netseer
 ```
 
-**TODO:** show how to install from GitHub (this repo)
+Alternatively, `netseer` can be built from source from GitHub:  
+(TODO: Check GitHub method works.)
 
+``` Bash
+pip install git+https://github.com/sevvandi/netseer_paper/tree/main/netseer-py
+```
 
 ## Available Functions - TODO
 
@@ -37,13 +40,9 @@ pip install netseer
 
 Documentation for the above functions is available in [netseer.pdf](TODO:netseer.pdf) (TODO: update link documentation PDF)
 
-
-## Example - TODO
-
-**TODO:** reduce example to only the following: (i) load 20 pre-generated graphs, (ii) use first 19 to predict the 20th graph, (iii) measure error between real and predicted 20th graph
+## Example
 
 **TODO:** the pre-generated graphs should be in a standard format, preferably not specific to R.  a format that can also be opened in Python or other tools.
-
 
 Generating an example graph list:
 
@@ -75,4 +74,3 @@ Now use `measure_error` to compare the 20th Actual graph with the Predicted 20th
 ``` Python
 vertex_error, edge_error = ns.measure_error(graph_list[19], predicted_graph)
 ```
-
