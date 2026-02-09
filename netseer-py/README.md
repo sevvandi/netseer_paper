@@ -22,10 +22,9 @@ pip install netseer
 ```
 
 Alternatively, `netseer` can be built from source from GitHub:  
-(TODO: Check GitHub method works.)
 
 ``` Bash
-pip install git+https://github.com/sevvandi/netseer_paper/tree/main/netseer-py
+pip install "git+https://github.com/sevvandi/netseer_paper.git#subdirectory=netseer-py"
 ```
 
 ## Available Functions - TODO
@@ -42,35 +41,31 @@ Documentation for the above functions is available in [netseer.pdf](TODO:netseer
 
 ## Example
 
-**TODO:** the pre-generated graphs should be in a standard format, preferably not specific to R.  a format that can also be opened in Python or other tools.
+Goal:
 
-Generating an example graph list:
+* Load 20 graphs from the file system.
+* Use graphs 1 to 19 to predict the 20th graph.
+* Compare the actual 20th graph to the newly predicted 20th graph.
 
-The `generate_graph_list()` function has parameters for templating what types of graphs to generate.  
+Before starting, download the [data.zip](./data.zip) directory under `/netseer-paper/netseer-py/`. This directory contains 20 example graphs. Extract the zip to your project root.  
 
 ``` Python
 import netseer as ns
+import natsort # pip install natsort
 
-# generate 20 graphs.
-graph_list = ns.generate_graph_linear(num_iters = 20)
-```
 
-Predicting on that graph:
+# Create a path to the extracted data directory. Replace "data" with the relative path to data 
+directory_path = Path.cwd() / Path("data")
+# Use glob to get a list of absolute paths for only .gml files.
+graph_files = list(directory_path.glob("*.gml"))
+# Optionally you may need to sort the graph names.
+graph_files = natsort.natsorted(graph_files)
+graph_list = ns.read_graph_list(graph_files)
 
-For predicting using the `predict_graph()` function, increasing the `h` parameter increases how many steps into the future the prediction is, with `h=1` being 1 step in the graph sequence. For the below example, we're using the first 19th graphs to predict the 20th.  
+# Predict the 20th graph using graphs 1 to 19.   
+predicted_graph = ns.predict_graph(graph_list[0:19], h=1, weights_option = 1)
 
-The `weights_option` parameter changes the method used to predict the graph. A `weights_option` of 5 causes older edge weights from earlier graphs to have less weight in the prediction.  
-
-``` Python
-# Using the first 19 graphs, predict the 20th.
-predicted_graph = ns.predict_graph(
-                                graph_list[0:18], 
-                                h=1, 
-                                weights_option = 5)
-```
-
-Now use `measure_error` to compare the 20th Actual graph with the Predicted 20th graph by generating metrics. The metrics are vertex_error and edge_error, which shows how close the number of vertices and edges are between graphs. The closer to zero the better performing the prediction was.  
-
-``` Python
+# Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
 vertex_error, edge_error = ns.measure_error(graph_list[19], predicted_graph)
+print(f"Vertex Error: {vertex_error} |  Edge Error: {edge_error}")
 ```
