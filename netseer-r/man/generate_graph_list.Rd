@@ -27,7 +27,7 @@ set to \code{0.1}.}
 
 \item{mode}{The method the graphs grow in.
 Either \code{"linear"} for linear creation, or \code{"exp"}.
-Default set to \code{"exp}.}
+Default set to \code{"exp"}.}
 
 \item{gr}{The input graph to generate the next graph. If set to \code{NULL}
 a graph using \code{igraph::sample_pa} is used as the input graph.}
@@ -40,7 +40,7 @@ Wrapper around 'generate_graph_linear' and 'generate_graph_exp'.
 }
 \examples{
 set.seed(1)
-gr <- generate_graph_linear(12, 0.1, 0.1, 0.1, "exp")
+gr <- generate_graph_list(12, 0.1, 0.1, 0.1, "exp")
 gr
 
 }

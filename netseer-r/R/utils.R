@@ -5,9 +5,6 @@ triangle_density <- function(gr) {
                                                               1) * (igraph::vcount(gr) - 2) / 6)
 }
 
-
-
-
 #' Generates a bigger graph using either linear or exponential growth.
 #'
 #' Wrapper around 'generate_graph_linear' and 'generate_graph_exp'.
@@ -24,13 +21,13 @@ triangle_density <- function(gr) {
 #'set to \code{0.1}.
 #'@param mode The method the graphs grow in.
 #'Either \code{"linear"} for linear creation, or \code{"exp"}.
-#'Default set to \code{"exp}.
+#'Default set to \code{"exp"}.
 #'
 #'@return A graph list.
 #'
 #'@examples
 #'set.seed(1)
-#'gr <- generate_graph_linear(12, 0.1, 0.1, 0.1, "exp")
+#'gr <- generate_graph_list(12, 0.1, 0.1, 0.1, "exp")
 #'gr
 #'
 #'@export
@@ -43,24 +40,14 @@ generate_graph_list <- function(num_graphs = 15,
   graphlist[[1]] <- gr <-  igraph::sample_pa(5, directed = FALSE)
 
   if (mode == "exp") {
-    for (i in 2:num + graphs) {
-      gr <-  generate_graph_exp(
-        gr,
-        del_edge = del_edge_val,
-        new_nodes = new_nodes_val,
-        edge_increase = edge_increase_val
-      )
+    for (i in 2:num_graphs) {
+      gr <-  generate_graph_exp(gr, del_edge , new_nodes, edge_increase)
       graphlist[[i]] <- gr
     }
 
   } else {
-    for (i in 2:15) {
-      gr <-  generate_graph_linear(
-        gr,
-        del_edge = del_edge_val,
-        new_nodes = new_nodes_val,
-        edge_increase = edge_increase_val
-      )
+    for (i in 2:num_graphs) {
+      gr <-  generate_graph_linear(gr, del_edge, new_nodes, edge_increase)
       graphlist[[i]] <- gr
     }
 

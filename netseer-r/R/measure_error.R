@@ -20,5 +20,5 @@ measure_error <- function(actual, predicted){
   node_err <- abs(igraph::vcount(actual) - igraph::vcount(predicted))/igraph::vcount(actual)
   edge_err <- abs(igraph::ecount(actual) - igraph::ecount(predicted))/igraph::ecount(actual)
 
-  return(node_err, edge_err)
+  return(list(node_err, edge_err))
 }
