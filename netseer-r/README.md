@@ -45,7 +45,7 @@ TODO: mention R-tools is required under Windows; under Linux the curl-devel / cu
 
 | Function | Summary |
 |----|----|
-| `read_graph_list()` | Load user provided graphs. |
+| `read_graph_list()` | Load user provided graphs. TODO: mention alpha-numeric order; also state in documentation |
 | `predict_graph()` | Predict the next graph in a sequence. |
 | `measure_error()` | Return the vertex error and edge error between two graphs. |
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly. |
@@ -92,6 +92,7 @@ print(edge_err)
 
 # TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
 
 
 
