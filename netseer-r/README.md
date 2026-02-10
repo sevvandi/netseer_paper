@@ -54,6 +54,8 @@ TODO: mention R-tools is required under Windows; under Linux the curl-devel / cu
 Documentation for the above functions is available in the [Documentation
 PDF](./docs/netseer.pdf)
 
+TODO: rename "data.zip" to "example_graphs.zip" (and the folder therein)
+
 ## Example
 
 Goal:
@@ -88,6 +90,7 @@ print(edge_err)
 
 # TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
 
 
 
