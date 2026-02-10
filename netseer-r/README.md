@@ -6,7 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/sevvandi/netseer/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/sevvandi/netseer/actions/workflows/R-CMD-check.yaml)
-<!-- badges: end --> *Netseer* is a software package for predicting new
+<!-- badges: end -->
+*Netseer* is a software package for predicting new
 graphs from a given time series of graphs.
 
 The underlying prediction algorithm combines time series modelling with
@@ -77,3 +78,4 @@ vertex_err, edge_err <- netseer::measure_error(graph_list[[20]], predicted_graph
 print(vertex_err)
 print(edge_err)
 ```
+
