@@ -39,7 +39,7 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
-TODO: mention R-tools is required under Windows; under Linux the curl-devel / curl-dev package system package is installed
+TODO: mention R-tools is required under Windows; under Linux the curl-devel / curl-dev package system package should be first installed
 
 ## Available Functions
 
@@ -94,6 +94,7 @@ print(edge_err)
 
 # TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
 
 
 
