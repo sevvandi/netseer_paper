@@ -32,6 +32,7 @@ install_packages("netseer")
 Alternatively, `netseer` can be built from source from GitHub:
 
 ``` r
+install.packages("remotes")
 library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
@@ -78,4 +79,5 @@ vertex_err, edge_err <- netseer::measure_error(graph_list[[20]], predicted_graph
 print(vertex_err)
 print(edge_err)
 ```
+
 
