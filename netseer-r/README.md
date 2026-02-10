@@ -79,7 +79,7 @@ path_to_graphs <- file.path("./data/")
 graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format = "gml")
 
 # Predict the 20th graph using graphs 1 to 19.  
-## A h value of 1 predicts 1 step into the future.
+## h=1 means predict 1 step into the future.
 predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt = 8, h=1)
 
 # TODO: netseer::predict_graph() is quite noisy
@@ -92,6 +92,7 @@ print(edge_err)
 
 # TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
 
 
 
