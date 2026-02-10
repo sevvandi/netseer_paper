@@ -54,6 +54,8 @@ TODO: mention R-tools is required under Windows; under Linux the curl-devel / cu
 Documentation for the above functions is available in the [Documentation
 PDF](./docs/netseer.pdf)
 
+TODO: rename graph filenames to make sure they follow alpha-numeric ordering; for example, graph_1.gml should be graph_01.gml
+
 TODO: rename "data.zip" to "example_graphs.zip" (and the folder therein)
 
 ## Example
@@ -90,6 +92,7 @@ print(edge_err)
 
 # TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
 
 
 
