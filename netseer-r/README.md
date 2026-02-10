@@ -78,11 +78,17 @@ graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format =
 ## A h value of 1 predicts 1 step into the future.
 predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt = 8, h=1)
 
+# TODO: netseer::predict_graph() is quite noisy
+# TODO: to avoid confusion, need to print out whether the modelling succeeded or failed
+
 # Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
 vertex_err, edge_err <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(vertex_err)
 print(edge_err)
+
+# TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
 
 
 
