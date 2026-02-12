@@ -15,6 +15,10 @@ A comprehensive description of the algorithm is given in:
 
 ## Installation - TODO
 
+TODO: need matplotlib as a dependency  
+TODO: need natsort    as a dependency  
+TODO: need pathlib    as a dependency  
+
 This package is available for installation on PyPI:
 
 ``` Bash
@@ -49,6 +53,8 @@ Goal:
 
 Before starting, download the [data.zip](./data.zip) directory under `/netseer-paper/netseer-py/`. This directory contains 20 example graphs. Extract the zip to your project root.  
 
+TODO: rename `data.zip` to `example_graphs.zip`
+
 ``` Python
 import netseer as ns
 import natsort # pip install natsort
@@ -62,6 +68,7 @@ graph_files = list(directory_path.glob("*.gml"))
 graph_files = natsort.natsorted(graph_files)
 graph_list = ns.read_graph_list(graph_files)
 
+# TODO: ensure the same h setting is used as in the R version
 # Predict the 20th graph using graphs 1 to 19.   
 predicted_graph = ns.predict_graph(graph_list[0:19], h=1, weights_option = 1)
 
@@ -69,3 +76,17 @@ predicted_graph = ns.predict_graph(graph_list[0:19], h=1, weights_option = 1)
 vertex_error, edge_error = ns.measure_error(graph_list[19], predicted_graph)
 print(f"Vertex Error: {vertex_error} |  Edge Error: {edge_error}")
 ```
+
+
+TODO:
+```
+>>> directory_path = Path.cwd() / Path("example_graphs")
+Traceback (most recent call last):
+  File "<python-input-2>", line 1, in <module>
+    directory_path = Path.cwd() / Path("example_graphs")
+                     ^^^^
+NameError: name 'Path' is not defined
+```
+
+TODO: change to `directory_path = pathlib.Path.cwd() / pathlib.Path("example_graphs")`
+
