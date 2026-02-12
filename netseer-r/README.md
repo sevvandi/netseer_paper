@@ -23,26 +23,28 @@ information. A comprehensive description of the algorithm is given in:
 
 ## Installation
 
+**TODO:** add a rudimentary but explicit dependency on the 'feasts' package, for example by adding a function to netseer that prints the version of feasts (and possibly versions of other packages)
+
 The `netseer` package is available for installation via CRAN:
 
 ``` r
-install.packages("feasts")
-install_packages("netseer")
+install.packages(c('feasts', 'netseer'))
 ```
 
 Alternatively, `netseer` can be built from source from GitHub:
 
 ``` r
-install.packages("feasts")
-install.packages("remotes")
+install.packages(c('feasts', 'remotes'))
 library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
 When building from GitHub, a C++ compiler may be needed. For Windows and Mac: Install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html). For Linux: Ubuntu `sudo apt install build-essential`, Fedora `sudo dnf group install "Development Tools"` etc.  
-For Linux ensure `curl` is installed. For Ubuntu: `sudo apt install curl`, Fedora: `sudo dnf install curl-devel`  
-TODO: mention R-tools is required under Windows; under Linux the curl-devel / curl-dev package system package should be first installed
-TODO: I'll check the ubuntu install, May not need a dev version of curl, just the base package. As the dev curl would be under something like `libcurl4-openssl-dev`.
+For Linux ensure `curl` is installed. For Ubuntu/Debian: `sudo apt install curl`, Fedora/RHEL/CentOS: `sudo dnf install curl-devel`  
+
+**TODO:** check the actual package name in Ubuntu/Debian; I suspect it's something like `curl-dev`
+
+**TODO:** I'll check the ubuntu install, May not need a dev version of curl, just the base package. As the dev curl would be under something like `libcurl4-openssl-dev`.
 
 ## Available Functions
 
@@ -65,9 +67,14 @@ Goal:
 - Use graphs 1 to 19 to predict the 20th graph.
 - Compare the actual 20th graph to the newly predicted 20th graph.
 
-Before starting, download the [example_graphs.zip](./example_graphs.zip) directory under
-`/netseer-paper/netseer-r/`.  This directory contains 20 example graphs.
-Extract the zip to your project root.
+Before starting, download the [example_graphs.zip](./example_graphs.zip) and extract the zip to your project root.
+The zip contains 20 example graphs.
+
+**TODO:** ensure that modelling success is indicated by `netseer::predict_graph()`; right now it's noisy with confusing output; the current output suggests that the modelling failed
+
+**TODO:** `vertex_err, edge_err <- netseer::measure_error()` currently doesn't work
+
+**TODO:** ensure that the errors are positive
 
 ``` r
 library("netseer")
@@ -91,5 +98,5 @@ vertex_err, edge_err <- netseer::measure_error(graph_list[[20]], predicted_graph
 print(vertex_err)
 print(edge_err)
 
-# TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
+
