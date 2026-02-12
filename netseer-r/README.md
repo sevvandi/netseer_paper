@@ -39,7 +39,10 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
+When building from GitHub, a C++ compiler may be needed. For Windows and Mac: Install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html). For Linux: Ubuntu `sudo apt install build-essential`, Fedora `sudo dnf group install "Development Tools"` etc.  
+For Linux ensure `curl` is installed. For Ubuntu: `sudo apt install curl`, Fedora: `sudo dnf install curl-devel`  
 TODO: mention R-tools is required under Windows; under Linux the curl-devel / curl-dev package system package should be first installed
+TODO: I'll check the ubuntu install, May not need a dev version of curl, just the base package. As the dev curl would be under something like `libcurl4-openssl-dev`.
 
 ## Available Functions
 
@@ -54,10 +57,6 @@ TODO: mention R-tools is required under Windows; under Linux the curl-devel / cu
 Documentation for the above functions is available in the [Documentation
 PDF](./docs/netseer.pdf)
 
-TODO: rename graph filenames to make sure they follow alpha-numeric ordering; for example, graph_1.gml should be graph_01.gml
-
-TODO: rename "data.zip" to "example_graphs.zip" (and the folder therein)
-
 ## Example
 
 Goal:
@@ -66,16 +65,16 @@ Goal:
 - Use graphs 1 to 19 to predict the 20th graph.
 - Compare the actual 20th graph to the newly predicted 20th graph.
 
-Before starting, download the [data.zip](./data.zip) directory under
-`/netseer-paper/netseer-r/`. This directory contains 20 example graphs.
+Before starting, download the [example_graphs.zip](./example_graphs.zip) directory under
+`/netseer-paper/netseer-r/`.  This directory contains 20 example graphs.
 Extract the zip to your project root.
 
 ``` r
 library("netseer")
 
-# Load 20 graphs from the /data/ directory.
-## Replace ./data/ in file.path with a path to the /data/ directory.
-path_to_graphs <- file.path("./data/")
+# Load 20 graphs from the example_graphs directory.
+## Replace ./example_graphs/ in file.path with a path to the example_graphs directory.
+path_to_graphs <- file.path("./example_graphs/")
 graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format = "gml")
 
 # Predict the 20th graph using graphs 1 to 19.  
@@ -94,14 +93,3 @@ print(edge_err)
 
 # TODO: "vertex_err, edge_err <- netseer::measure_error() currently doesn't work
 ```
-
-
-
-
-
-
-
-
-
-
-
