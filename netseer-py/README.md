@@ -67,7 +67,7 @@ NameError: name 'Path' is not defined
 
 **TODO:** change to `directory_path = pathlib.Path.cwd() / pathlib.Path("example_graphs")`
 
-**TODO:** ensire the errors are positive
+**TODO:** ensure the errors are positive
 
 ``` Python
 import netseer as ns
