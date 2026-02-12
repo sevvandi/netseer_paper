@@ -67,7 +67,7 @@ NameError: name 'Path' is not defined
 
 **TODO:** change to `directory_path = pathlib.Path.cwd() / pathlib.Path("example_graphs")`
 
-**TODO:** ensure that `weights_option` is the same as the R version
+**TODO:** ensure that the value for the `weights_option` is the same as the R version
 
 **TODO:** link to where more info about `weights_option` can be found
 
