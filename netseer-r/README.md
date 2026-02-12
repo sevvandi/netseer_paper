@@ -72,6 +72,8 @@ The zip contains 20 example graphs.
 
 **TODO:** ensure that modelling success is indicated by `netseer::predict_graph()`; right now it's noisy with confusing output; the current output suggests that the modelling failed
 
+**TODO:** link to where more info about `weights_opt` can be found
+
 **TODO:** `vertex_err, edge_err <- netseer::measure_error()` currently doesn't work
 
 **TODO:** ensure that the errors are positive
@@ -99,4 +101,5 @@ print(vertex_err)
 print(edge_err)
 
 ```
+
 
