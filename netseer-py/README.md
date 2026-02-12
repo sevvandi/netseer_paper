@@ -67,6 +67,11 @@ NameError: name 'Path' is not defined
 
 **TODO:** change to `directory_path = pathlib.Path.cwd() / pathlib.Path("example_graphs")`
 
+**TODO:** ensure that `weights_option` is the same as the R version
+
+**TODO:** link to where more info about `weights_option` can be found
+
+
 **TODO:** ensure the errors are positive
 
 ``` Python
@@ -82,7 +87,6 @@ graph_files = list(directory_path.glob("*.gml"))
 graph_files = natsort.natsorted(graph_files)
 graph_list = ns.read_graph_list(graph_files)
 
-# TODO: ensure the same h setting is used as in the R version
 # Predict the 20th graph using graphs 1 to 19.   
 predicted_graph = ns.predict_graph(graph_list[0:19], h=1, weights_option = 1)
 
