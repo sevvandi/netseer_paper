@@ -76,13 +76,24 @@ The zip contains 20 example graphs.
 
 **TODO:** **Complete (Success Output)** ensure that modelling success is indicated by `netseer::predict_graph()`; right now it's noisy with confusing output; the current output suggests that the modelling failed  
 
-**TODO:**  netseer::predict_graph() still doesn't print out success;  instead we get weird warning and error messages
-
-**TODO:** link to where more info about `weights_opt` can be found
-
 **TODO:** **Complete** `vertex_err, edge_err <- netseer::measure_error()` currently doesn't work
 
 **TODO:** **Complete** ensure that the errors are positive in python.
+
+**TODO:**  netseer::predict_graph() still doesn't print out success;  instead we get weird warning and error messages
+
+**TODO:** link to where more info about `weights_opt` can be found (ie. state that the options are explained in the documentation)
+
+**TODO:** ensure that `weights_opt` are actually documented in the documentation
+
+**TODO:** reject invalid weights_opt
+
+**TODO:** ensure that the weights_opt ids are the same in the R and Python versions
+
+**TODO:** if there is no corresponding weights_opt id in Python, disable the functionality in R
+
+**TODO:** ensure that the errors are the same (or very close) for the same weights_opt in R and Python versions
+
 
 ``` r
 library("netseer")
@@ -108,6 +119,7 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
 
 
 
