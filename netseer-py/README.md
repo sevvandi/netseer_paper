@@ -60,6 +60,32 @@ The zip contains 20 example graphs.
 
 **TODO:** ensure the errors are positive
 
+---
+
+
+**TODO:** make natsort as explicit dependency
+
+**TODO:** make matplotlib as explicit dependency
+
+**TODO:** make pathlib as explicit dependency
+
+**TODO:** change read_graph_list() function to load files in a given directory
+
+**TODO:** change read_graph_list() function to do alpha-numeric sorting of files by default
+
+**TODO:** ensure functionality is the same as the R version
+
+**TODO:** ensure weights_option ids are the same between the R and Python versions
+
+**TODO:** make ns.predict_graph() error out when an invalid weights_option is given (eg. > 8)
+
+**TODO:** ensure the errors are the same (or very close) for the same weights_option for the R and Python versions
+
+**TODO:** state that the weights_option is explained in the documentation
+
+**TODO:** ensure that the weights_option is actually explained in the documentation
+
+
 ``` Python
 import netseer as ns
 import natsort # pip install natsort
