@@ -141,6 +141,7 @@ predict_graph <- function(graphlist,
                                           probj,
                                           new_nodes_upper)
   }
+  pkg_message(c("i"="Predicting Graphs Successful."))
 
   list(
     graph_mean = grout,

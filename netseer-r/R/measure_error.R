@@ -1,12 +1,12 @@
 #' Gives an error measurement for predicted graphs
 #'
 #' This function compares the predicted graph with the actual and comptues the
-#' node and edge error as a proportion
+#' vertex and edge error as a proportion
 #'
 #' @param actual The ground truth or actual graph.
 #' @param predicted The predicted graph.
 #'
-#' @return The node error and edge error as a proportion.
+#' @return The vertex error and edge error as a proportion.
 #'
 #' @examples
 #' data(syngraphs)
@@ -15,10 +15,12 @@
 #'
 #'
 #' @export
-measure_error <- function(actual, predicted){
+measure_error <- function(actual, predicted) {
+  vertex_err <- abs(igraph::vcount(actual) - igraph::vcount(predicted)) /
+    igraph::vcount(actual)
+  edge_err <- abs(igraph::ecount(actual) - igraph::ecount(predicted)) /
+    igraph::ecount(actual)
 
-  node_err <- abs(igraph::vcount(actual) - igraph::vcount(predicted))/igraph::vcount(actual)
-  edge_err <- abs(igraph::ecount(actual) - igraph::ecount(predicted))/igraph::ecount(actual)
+  output  <- list(vertex_err = vertex_err, edge_err = edge_err)
 
-  return(list(node_err, edge_err))
 }

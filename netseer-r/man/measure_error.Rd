@@ -12,11 +12,11 @@ measure_error(actual, predicted)
 \item{predicted}{The predicted graph.}
 }
 \value{
-The node error and edge error as a proportion.
+The vertex error and edge error as a proportion.
 }
 \description{
 This function compares the predicted graph with the actual and comptues the
-node and edge error as a proportion
+vertex and edge error as a proportion
 }
 \examples{
 data(syngraphs)
