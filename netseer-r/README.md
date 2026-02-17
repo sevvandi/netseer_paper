@@ -48,9 +48,13 @@ For Linux ensure `curl` is installed. For Ubuntu/Debian: `sudo apt install curl`
 
 ## Available Functions
 
+**TODO:** for the description of `read_graph_list()` below, state that graphs are loaded in alpha-numeric order
+
+**TODO:** also state in documentation that `read_graph_list()` loads graphs are loaded in alpha-numeric order
+
 | Function | Summary |
 |----|----|
-| `read_graph_list()` | Load user provided graphs. TODO: mention alpha-numeric order; also state in documentation |
+| `read_graph_list()` | Load user provided graphs.|
 | `predict_graph()` | Predict the next graph in a sequence. |
 | `measure_error()` | Return the vertex error and edge error between two graphs. |
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly. |
@@ -104,6 +108,7 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
 
 
 
