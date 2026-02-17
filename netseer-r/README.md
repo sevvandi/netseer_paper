@@ -72,6 +72,8 @@ The zip contains 20 example graphs.
 
 **TODO:** **Complete (Success Output)** ensure that modelling success is indicated by `netseer::predict_graph()`; right now it's noisy with confusing output; the current output suggests that the modelling failed  
 
+**TODO:**  netseer::predict_graph() still doesn't print out success;  instead we get weird warning and error messages
+
 **TODO:** link to where more info about `weights_opt` can be found
 
 **TODO:** **Complete** `vertex_err, edge_err <- netseer::measure_error()` currently doesn't work
@@ -100,3 +102,4 @@ output <- netseer::measure_error(graph_l eist[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
