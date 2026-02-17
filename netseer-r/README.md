@@ -98,8 +98,9 @@ predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=1, h=1)
 # TODO: to avoid confusion, need to print out whether the modelling succeeded or failed
 
 # Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
-output <- netseer::measure_error(graph_l eist[[20]], predicted_graph[[1]])
+output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
 
