@@ -90,7 +90,7 @@ graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format =
 ## h=1 means predict 1 step into the future.
 ## weights_opt=8 selects method 8 for weight optimisation/selection?; see documentation for details
 ## TODO: clarify what weights_opt=8 means
-predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=8, h=1)
+predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=1, h=1)
 
 # TODO: netseer::predict_graph() is quite noisy
 # TODO: to avoid confusion, need to print out whether the modelling succeeded or failed
