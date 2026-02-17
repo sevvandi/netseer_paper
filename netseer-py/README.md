@@ -51,32 +51,19 @@ Goal:
 * Use graphs 1 to 19 to predict the 20th graph.
 * Compare the actual 20th graph to the newly predicted 20th graph.
 
-Before starting, download the [data.zip](./data.zip) directory under `/netseer-paper/netseer-py/`. This directory contains 20 example graphs. Extract the zip to your project root.  
-
-**TODO:** rename `data.zip` to `example_graphs.zip`
-
-**TODO:**
-```
->>> directory_path = Path.cwd() / Path("example_graphs")
-Traceback (most recent call last):
-  File "<python-input-2>", line 1, in <module>
-    directory_path = Path.cwd() / Path("example_graphs")
-                     ^^^^
-NameError: name 'Path' is not defined
-```
-
-**TODO:** change to `directory_path = pathlib.Path.cwd() / pathlib.Path("example_graphs")`
+Before starting, download the [example_graphs.zip](./example_graphs.zip) and extract the zip to your project root.
+The zip contains 20 example graphs.
 
 **TODO:** ensure that the value for the `weights_option` is the same as the R version
 
 **TODO:** link to where more info about `weights_option` can be found
-
 
 **TODO:** ensure the errors are positive
 
 ``` Python
 import netseer as ns
 import natsort # pip install natsort
+from pathlib import Path #pip install pathlib
 
 
 # Create a path to the extracted data directory. Replace "data" with the relative path to data 

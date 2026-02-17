@@ -84,5 +84,5 @@ def predict_graph(
         weights_option,
     )
 
-    print("done")
+    print("Prediction Completed")
     return mean_graph
