@@ -90,8 +90,10 @@ graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format =
 
 # Predict the 20th graph using graphs 1 to 19.  
 ## h=1 means predict 1 step into the future.
-## weights_opt=8 selects method 8 for weight optimisation/selection?; see documentation for details
+## TODO: weights_opt=8 selects method 8 for weight optimisation/selection?; see documentation for details
 ## TODO: clarify what weights_opt=8 means
+## TODO: ensure documentation has a brief explanation of what each weights_opt means
+## TODO: (ie. what does 1 mean, what does 2 mean, ...)
 predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=1, h=1)
 
 # TODO: netseer::predict_graph() is quite noisy
@@ -102,5 +104,6 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
 
 
