@@ -70,13 +70,13 @@ Goal:
 Before starting, download the [example_graphs.zip](./example_graphs.zip) and extract the zip to your project root.
 The zip contains 20 example graphs.
 
-**TODO:** ensure that modelling success is indicated by `netseer::predict_graph()`; right now it's noisy with confusing output; the current output suggests that the modelling failed
+**TODO:** **Complete (Success Output)** ensure that modelling success is indicated by `netseer::predict_graph()`; right now it's noisy with confusing output; the current output suggests that the modelling failed  
 
 **TODO:** link to where more info about `weights_opt` can be found
 
-**TODO:** `vertex_err, edge_err <- netseer::measure_error()` currently doesn't work
+**TODO:** **Complete** `vertex_err, edge_err <- netseer::measure_error()` currently doesn't work
 
-**TODO:** ensure that the errors are positive
+**TODO:** **Complete** ensure that the errors are positive in python.
 
 ``` r
 library("netseer")
@@ -96,10 +96,7 @@ predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=8, h=1)
 # TODO: to avoid confusion, need to print out whether the modelling succeeded or failed
 
 # Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
-vertex_err, edge_err <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
-print(vertex_err)
-print(edge_err)
+output <- netseer::measure_error(graph_l eist[[20]], predicted_graph[[1]])
+print(output)
 
 ```
-
-
