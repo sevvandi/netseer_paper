@@ -26,12 +26,12 @@ Imports:
     igraph,
     lpSolve,
     Matrix,
+    feasts,
     rlang,
     stats,
     tibble,
     tsibble
 Suggests: 
-    feasts,
     knitr,
     nnet,
     rmarkdown,
