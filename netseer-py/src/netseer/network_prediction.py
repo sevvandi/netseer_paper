@@ -1,30 +1,8 @@
-"""Prediction Module:
-
-Typical Usage Example:
-    ``` Python
-    from netseer import utils, generate_graph, prediction
-    from pathlib import Path
-
-    # Get the directory/folder with all the graphs.
-    directory_path = Path.cwd() / Path("path/to/data")
-    # Use glob to get a list of absolute paths for .gml files.
-    graph_files = directory_path.glob("*.gml"))
-
-    # Load the graphs into igraph using the list of gml files.
-    graph_list = utils.read_graph_list(graph_files)
-    # Predict the next graph.
-    predict = prediction.predict_graph(graph_list, h=1)
-    ```
-
-"""
+"""Prediction Module:"""
 
 from collections.abc import Iterable
-from typing import Optional
 
-import numpy as np
 import igraph as ig
-import pulp
-import pulp.constants
 
 import netseer.functions as functions
 
@@ -35,24 +13,31 @@ def predict_graph(
     conf_nodes=None,
     conf_degree: int = 90,
     weights_option: int = 4,
+    weights_param=0.001,
 ) -> ig.Graph:
     """From a list of graphs, predicts a new graph
 
     Args:
         graph_list: A list of graphs to be predicted on: See generate_graph_list()
         h: How many steps into the future the prediction should be.
-        conf_nodes: -- TODO
-        conf_degree: -- TODO
-        weights_option: Int between 1-7 determines the weight of newly created edges.
-            1-3: Weight 0 for all edges.
-            4: Weight 1 for all edges.
-            5: Linear scaling weights for new edges (x+1). E.g. 1, 2, 3
-            6: Proportional Weights.
+        conf_nodes: -- Not Implemented.
+        conf_degree: -- Not Implemented.
+        weights_option: Int between 1-7 determines edge weight schemes.
+            1: Uniform Weight. 1 for all Edges.
+            2: Binary Weight. 1 for all Edges.
+            3: Binary Weight. 1 for most connected vertices.
+            4: Proportional Weights according to history.
+            5: Proportional Weight. Linear scaling weights for new edges based on time series (Time Step Index+ 1 ). E.g. 1, 2, 3
+            6: Proportional Weights. Decaying weights based on time series. (1/(Number of graphs - Time Step Index + 1)) E.g. 1, 1/2, 1/3
             7: Weight 0 for all edges, except for last edge which is 1.
+            8: Not Implemented.
+        weights_param: The weight given for possible edges from new vertices. Default is 0.001
 
     Returns:
         Predicted Graph.
     """
+    if not 1 <= weights_option <= 7:
+        raise ValueError("weights_option must be between 1 and 7.")
 
     print("Forecasting properties of the new graph")
     # predict the number of nodes for the predicted graph
@@ -82,6 +67,7 @@ def predict_graph(
         conf_nodes,
         conf_degree,
         weights_option,
+        weights_param,
     )
 
     print("Prediction Completed")

@@ -1,13 +1,4 @@
-"""Contains functions for generating a list of graphs.
-
-Typical usage example:
-    ``` Python
-    from netseer import generate_graph, prediction
-
-    graph_list = generate_graph.generate_graph_list()
-    predict = prediction.predict_graph(graph_list, h=1)
-    ```
-"""
+"""Contains functions for generating a list of graphs."""
 
 import numpy as np
 import igraph as ig

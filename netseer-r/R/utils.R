@@ -1,9 +1,12 @@
 library(igraph)
+library(feasts)
 
 triangle_density <- function(gr) {
   sum(igraph::count_triangles(gr)) / (igraph::vcount(gr) * (igraph::vcount(gr) -
                                                               1) * (igraph::vcount(gr) - 2) / 6)
 }
+
+if ("feasts" %in% .packages()) {} 
 
 #' Generates a bigger graph using either linear or exponential growth.
 #'

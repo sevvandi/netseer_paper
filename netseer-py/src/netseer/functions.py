@@ -14,10 +14,6 @@ import statsforecast.models as sfm
 import pulp
 import pulp.constants
 
-from typing import Optional
-
-import numpy as np
-
 import igraph.operators.functions as igf
 import igraph as ig
 
@@ -175,7 +171,7 @@ def construct_union_graph(
     new_nodes_degrees,
     remove_vertices: Optional[int] = 0,
     weights_option: int = 2,
-    weights_param=0,
+    weights_param=0.001,
     num_most_connected_nodes: int = 10,
 ):
     def weights_value(weights_option: int, index: int, num_graphs: int) -> float:
@@ -350,6 +346,7 @@ def predict_graph_from_forecasts(
     conf_nodes: Optional[int] = None,
     conf_degree: Optional[int] = None,
     weights_option: int = 1,
+    weights_param=0.001,
 ) -> ig.Graph:
     # the maximum degree for each node
     max_node_degrees = None  # the maximim degree of each node in the solution graph
@@ -365,7 +362,11 @@ def predict_graph_from_forecasts(
     # construction a graph that is the union of the graphs in the graph list
     print("Creating union graph for solver")
     union_graph = construct_union_graph(
-        graph_list, new_nodes, new_nodes_degrees, weights_option=weights_option
+        graph_list,
+        new_nodes,
+        new_nodes_degrees,
+        weights_option=weights_option,
+        weights_param=weights_param,
     )
 
     # setup linear programming solver

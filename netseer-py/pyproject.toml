@@ -10,6 +10,9 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
   "igraph>=0.11.9",
+  "matplotlib>=3.10.8",
+  "natsort>=8.4.0",
+  "pathlib>=1.0.1",
   "pulp>=3.2.1",
   "statsforecast>=2.0.2",
   "statsmodels>=0.14.5",
@@ -34,4 +37,5 @@ dev = [
   "mkdocs-material>=9.6.15",
   "mkdocs-to-pdf>=0.10.1",
   "mkdocstrings[python]>=0.29.1",
+  "pytest>=9.0.2",
 ]
