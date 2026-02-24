@@ -6,8 +6,6 @@ triangle_density <- function(gr) {
                                                               1) * (igraph::vcount(gr) - 2) / 6)
 }
 
-if ("feasts" %in% .packages()) {} 
-
 #' Generates a bigger graph using either linear or exponential growth.
 #'
 #' Wrapper around 'generate_graph_linear' and 'generate_graph_exp'.
