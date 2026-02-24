@@ -1,4 +1,5 @@
 #' Predicts a graph from a time series of graphs.
+e##### Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
 #'
 #' This function predicts the graph at a future time step using a time series of
 #' graphs.
@@ -141,7 +142,7 @@ predict_graph <- function(graphlist,
                                           probj,
                                           new_nodes_upper)
   }
-  pkg_message(c("i"="Predicting Graphs Successful."))
+  print("Graph Prediction Successful")
 
   list(
     graph_mean = grout,
