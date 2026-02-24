@@ -24,6 +24,13 @@ def read_graph_list(
     directory_path = Path.cwd() / Path(filepath)
     # Use glob to get a list of absolute paths for only .gml files.
     filenames = list(directory_path.glob(graph_type))
+
+    if not filenames:
+        print(
+            f"Error:Either directory doesn't exist, or no files found in directory in direction {directory_path}."
+        )
+        quit()
+
     # Optionally you may need to sort the graph names.
     if sort:
         filenames = natsort.natsorted(filenames)
