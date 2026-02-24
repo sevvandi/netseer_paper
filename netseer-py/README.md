@@ -27,7 +27,7 @@ Alternatively, `netseer` can be built from source from GitHub:
 pip install "git+https://github.com/sevvandi/netseer_paper.git#subdirectory=netseer-py"
 ```
 
-## Available Functions - TODO
+## Available Functions
 
 | Function                  | Summary                                                         |
 | ---                       | ---                                                             |
