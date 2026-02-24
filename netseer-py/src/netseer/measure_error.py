@@ -17,14 +17,14 @@ def measure_error(actual, predicted) -> Tuple[float, float]:
 
 
 def vertex_error(actual, predicted):
-    num_nodes_actual = abs(actual.vcount())
-    num_nodes_predicted = abs(predicted.vcount())
-    delta_vertex = abs(num_nodes_predicted - num_nodes_actual)
+    num_nodes_actual = actual.vcount()
+    num_nodes_predicted = predicted.vcount()
+    delta_vertex = abs(num_nodes_actual - num_nodes_predicted)
     return delta_vertex / num_nodes_actual
 
 
 def edge_error(actual, predicted):
     num_edges_actual = actual.ecount()
     num_edges_predicted = predicted.ecount()
-    delta_edges = abs(num_edges_predicted - num_edges_actual)
+    delta_edges = abs(num_edges_actual - num_edges_predicted)
     return delta_edges / num_edges_actual
