@@ -92,11 +92,9 @@ graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format =
 ## weights_opt=7 sets the edge weight of the last seen graph as 1, otherwise 0.
 predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=7, h=1)
 
-# Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge error.
+# Compare the 20th actual graph and the predicted 20th graph by checking the vertex and edge errors.
 output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
-print(output)
+print(output$vertex_err)
+print(output$edge_err)
 
 ```
-
-
-
