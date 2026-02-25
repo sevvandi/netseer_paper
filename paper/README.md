@@ -1,9 +1,8 @@
-This folder contains a Journal of Open Source Software (JOSS) submission for _Netseer_.
+# Graph Prediction Using Netseer (JOSS paper submission)
 
-The source code for _Netseer_ can be obtained via:
+* This folder contains LaTex sources for the Journal of Open Source Software (JOSS) submission
 
-* [`../netseer-r`](../netseer-r/) contains the R implementation
-* [`../netseer-py`](../netseer-py/) contains the Python implementation
+* The R source code for _Netseer_ package can be obtained from [`../netseer-r`](../netseer-r/)
 
 
 ### PDF Generation  (TODO: remove this section before submission)
