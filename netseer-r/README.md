@@ -28,13 +28,13 @@ information. A comprehensive description of the algorithm is given in:
 The `netseer` package is available for installation via CRAN:
 
 ``` r
-install.packages(c('feasts', 'netseer'))
+install.packages("netseer")
 ```
 
 Alternatively, `netseer` can be built from source from GitHub:
 
 ``` r
-install.packages(c('feasts', 'remotes'))
+install.packages("remotes")
 library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
