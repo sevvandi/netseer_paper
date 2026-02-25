@@ -71,6 +71,8 @@ The zip contains 20 example graphs.
 
 Information about specific functions can be found in the [Documentation PDF](./docs/netseer.pdf), such as what the `weights_opt` parameter changes in `predict_graph()`
 
+**TODO:** add internal function that uses a function from the feasts package
+
 **TODO:** update documentation to make sure all the functions are listed and described
 
 **TODO:** update documentation to bump the version number (eg. 0.2.1)
@@ -95,5 +97,6 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
 
 
