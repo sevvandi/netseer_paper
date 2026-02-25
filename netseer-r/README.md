@@ -23,15 +23,16 @@ information. A comprehensive description of the algorithm is given in:
 
 ## Installation
 
-**TODO:** add a rudimentary but explicit dependency on the 'feasts' package, for example by adding a function to netseer that prints the version of feasts (and possibly versions of other packages)
+The `netseer` package can be installed via CRAN or via GitHub.
+The latter will have the most up to date version.
 
-The `netseer` package is available for installation via CRAN:
+* Installation via CRAN:
 
 ``` r
 install.packages("netseer")
 ```
 
-Alternatively, `netseer` can be built from source from GitHub:
+* Installation via GitHub:
 
 ``` r
 install.packages("remotes")
@@ -39,10 +40,11 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
-When building from GitHub, a C++ compiler may be needed. For Windows and Mac: Install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html). For Linux: Ubuntu `sudo apt install build-essential`, Fedora `sudo dnf group install "Development Tools"` etc.  
-For Linux ensure `curl` is installed. For Ubuntu/Debian: `sudo apt install libcurl4-openssl-dev`, Fedora/RHEL/CentOS: `sudo dnf install curl-devel`  
+When building from GitHub, a C++ compiler and the `curl` library are required to build dependencies.
+* Windows/Mac: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html) (**TODO:** check: is this the same for Mac)
+* Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev`  (**TODO:** check)
+* Fedora/RHEL/CentOS: `sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
 
-**TODO:** Double check `libcurl4-openssl-dev` on ubuntu.
 
 ## Available Functions
 
@@ -54,8 +56,7 @@ For Linux ensure `curl` is installed. For Ubuntu/Debian: `sudo apt install libcu
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly. |
 | `generate_graph_exp()` | Generate a time series of random graphs that grow exponentially. |
 
-Documentation for the above functions is available in the [Documentation
-PDF](./docs/netseer.pdf).
+Documentation for the above functions is available in the [Documentation PDF](./docs/netseer.pdf).
 
 ## Example
 
@@ -94,3 +95,4 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
