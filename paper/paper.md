@@ -85,15 +85,9 @@ A conceptual example of graph prediction is shown in [@fig:graph_grow].
 ![Example of a time series with growing graphs. Graphs 1 to 14 are used for learning the dynamics, followed by predicting graph 15.  TODO: remove "1 step" from the rightmost panel. \label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
 
 
-# Example in R
+# Example Usage
 
-
-**TODO:** need to show a self-contained program that does the following:
-* load pre-generated graphs that are available with the package
-* let's say the number of pre-generated graphs is N
-* using graphs 1 to N-1, predict graph N
-* measure error between predicted graph N and real graph N
-* include comments to aid interpretation of the code
+**TODO:** copy example from netsee-r/README.md
 
 ``` R
 graphlist <- list()
