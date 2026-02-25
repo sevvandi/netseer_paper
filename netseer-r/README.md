@@ -69,11 +69,11 @@ Goal:
 Before starting, download the [example_graphs.zip](./example_graphs.zip) and extract the zip to your project root.
 The zip contains 20 example graphs.
 
-**TODO:** if there is no corresponding weights_opt id in Python, disable the functionality in R
-
-**TODO:** ensure that the errors are the same (or very close) for the same weights_opt in R and Python versions
-
 Information about specific functions can be found in the [Documentation PDF](./docs/netseer.pdf), such as what the `weights_opt` parameter changes in `predict_graph()`
+
+**TODO:** update documentation to make sure all the functions are listed and described
+
+**TODO:** update documentation to bump the version number (eg. 0.2.1)
 
 ---
 
@@ -95,4 +95,5 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output)
 
 ```
+
 
