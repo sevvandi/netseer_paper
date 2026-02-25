@@ -1,8 +1,7 @@
 ---
-title: 'Netseer: A Package for Predicting Dynamic Graphs via Adapted Flux Balance Analysis in R and Python'
+title: 'Netseer: An R Package for Predicting Dynamic Graphs via Adapted Flux Balance Analysis'
 tags:
   - R
-  - Python
 authors:
   - name: Brodie Oldfield
     orcid: 0009-0000-4500-5006
@@ -21,15 +20,14 @@ affiliations:
    index: 1
  - name: Griffith University, Australia
    index: 2
-date: xx Feburary 2026
+date: xx March 2026
 bibliography: paper.bib
 ---
 
 
 # Summary
 
-_Netseer_ is an open-source package for both R and Python that models a temporal sequence of graphs
-and predicts new graphs at future time steps.
+_Netseer_ is an open-source package for R that models a temporal sequence of graphs and predicts new graphs at future time steps.
 The underlying algorithm is comprised of time series modelling combined with an adapted form of Flux Balance Analysis (FBA),
 a technique originating from biochemistry used for reconstructing metabolic networks from partial information [@Orth_2010].
 _Netseer_ is able to predict both vertices and edges while having low computational intensity and data requirements.
@@ -65,7 +63,7 @@ or being computationally expensive.
 
 # Functionality
 
-_Netseer_ is provided as two separate implementations in R and Python, available on CRAN and PyPI, respectively.
+_Netseer_ is provided as a package for R, available on CRAN and GitHub.
 The package provides functions for loading a time series (set) of graphs,
 predicting a graph from a given time series, and measuring the error between graphs.
 There are also functions for generating synthetic graphs.
@@ -118,26 +116,6 @@ pred_1 <- predict_graph(graphlist[1:19], h = 1, weights_opt = 5)
 %% Compare the predicted 20th graph with the actual 20th graph.
 measure_error(graphlist[[20]], pred_1)
 ```
-
-# Example in Python
-
-**TODO:** adapt the self-contained example in R code into Python code
-
-``` Python
-# load graphs
-graph_list = utils.read_graph_list(path_to_graphs)
-
-# predict graph one step ahead
-predicted_graph_1 = predict.predict_graph(graph_list, h=1)
-
-# predict graph five steps ahead
-predicted_graph_5 = predict.predict_graph(graph_list, h=5)
-
-```
-
-`path_to_graphs` is a list of paths to be loaded into memory.  
-Increase `h` to predict more steps into the future.
-
 
 # Licensing and Availability
 
