@@ -64,9 +64,22 @@ or being computationally expensive.
 # Functionality
 
 _Netseer_ is provided as a package for R, available on CRAN and GitHub.
-The package provides functions for loading a time series (set) of graphs,
-predicting a graph from a given time series, and measuring the error between graphs.
+The package provides functions for loading a time series (ordered set) of graphs,
+predicting a graph from a given time series, and measuring differences (errors) between graphs.
 There are also functions for generating synthetic graphs.
+A summary of the available functionality is given in Table **TODO**.
+
+
+| Function | Summary |
+|----|----|
+| `read_graph_list()` | Load user provided graphs in alphanumeric order |
+| `predict_graph()` | Predict the next graph in a sequence |
+| `measure_error()` | Return the vertex error and edge error between two graphs |
+| `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
+| `generate_graph_exp()` | Generate a time series of random graphs that grow exponentially |
+
+
+# Graph Prediction
 
 Graphs are predicted in two steps.
 In the first step,
