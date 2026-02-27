@@ -39,12 +39,12 @@ remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
 When building from GitHub, a C++ compiler and the `curl` library are
-required to build dependencies. \* Windows/Mac: install
-[RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
-(**TODO:** check: is this the same for Mac) \* Ubuntu/Debian:
-`sudo apt install build-essential libcurl4-openssl-dev` (**TODO:**
-check) \* Fedora/RHEL/CentOS:
-`sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
+required to build dependencies.
+
+* Windows: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
+* MacOS: install Xcode; command line example: `xcode-select --install`
+* Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev` (**TODO:** check)
+* Fedora/RHEL/CentOS: `sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
 
 ## Available Functions
 
@@ -103,3 +103,4 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output$vertex_err)
 print(output$edge_err)
 ```
+
