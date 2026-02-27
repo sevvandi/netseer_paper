@@ -67,11 +67,13 @@ _Netseer_ is provided as a package for R, available on CRAN and GitHub.
 The package provides functions for loading a time series (ordered set) of graphs,
 predicting a graph from a given time series, and measuring differences (errors) between graphs.
 There are also functions for generating synthetic graphs.
-A summary of the available functionality is given in Table **TODO**.
+A summary of the available functionality is given in Table [@tab:functions].
 
 **TODO:**
 * maybe rename `read_graph_list()` to `load_graphs_dir()`?
 * add new `load_graph_list()` function to load graphs specified in an R list/array?
+
+**TODO:** caption for table \label{tab:functions}
 
 
 | Function | Summary |
