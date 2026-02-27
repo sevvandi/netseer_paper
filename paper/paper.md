@@ -37,7 +37,7 @@ _Netseer_ is able to predict both vertices and edges while having low computatio
 
 Many dynamic processes such as transport, electricity, telecommunication, and social networks
 can be represented through an ordered sequence of graphs, known as dynamic graphs.
-The graphs evolve over time through the addition and deletion of vertices (nodes) and/or edges (links between nodes) [@repLearning] (TODO: replace arXiv pre-print with something better).
+The graphs evolve over time through the addition and deletion of vertices (nodes) and/or edges (links between nodes) [@Kazemi_2020].
 Modelling the dynamics can be used for predicting graphs at future time steps,
 which in turn facilitates applications such as the detection of anomalous graphs via differences between observed and predicted graphs.
 The anomalous graphs may represent events of interest, including network overloads, cyber attacks, and car accidents.
