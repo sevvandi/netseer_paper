@@ -37,7 +37,7 @@ _Netseer_ is able to predict both vertices and edges while having low computatio
 
 Many dynamic processes such as transport, electricity, telecommunication, and social networks
 can be represented through an ordered sequence of graphs, known as dynamic graphs.
-The graphs evolve over time through the addition and deletion of vertices (nodes) and/or edges (links between nodes) [@repLearning] (TODO: replace arXiv pre-print with something better).
+The graphs evolve over time through the addition and deletion of vertices (nodes) and/or edges (links between nodes) [@Kazemi_2020].
 Modelling the dynamics can be used for predicting graphs at future time steps,
 which in turn facilitates applications such as the detection of anomalous graphs via differences between observed and predicted graphs.
 The anomalous graphs may represent events of interest, including network overloads, cyber attacks, and car accidents.
@@ -64,9 +64,22 @@ or being computationally expensive.
 # Functionality
 
 _Netseer_ is provided as a package for R, available on CRAN and GitHub.
-The package provides functions for loading a time series (set) of graphs,
-predicting a graph from a given time series, and measuring the error between graphs.
+The package provides functions for loading a time series (ordered set) of graphs,
+predicting a graph from a given time series, and measuring differences (errors) between graphs.
 There are also functions for generating synthetic graphs.
+A summary of the available functionality is given in Table **TODO**.
+
+
+| Function | Summary |
+|----|----|
+| `read_graph_list()` | Load user provided graphs in alphanumeric order |
+| `predict_graph()` | Predict the next graph in a sequence |
+| `measure_error()` | Return the vertex error and edge error between two graphs |
+| `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
+| `generate_graph_exp()` | Generate a time series of random graphs that grow exponentially |
+
+
+# Graph Prediction
 
 Graphs are predicted in two steps.
 In the first step,
@@ -87,28 +100,27 @@ A conceptual example of graph prediction is shown in [@fig:graph_grow].
 
 # Example Usage
 
-**TODO:** copy example from netsee-r/README.md
+The following example code shows how _Netseer_ can be used in R.
+The code uses 20 example graphs provided online as [example_graphs.zip](https://github.com/sevvandi/netseer_paper/blob/main/netseer-r/example_graphs.zip).
+
+## TODO: discuss possibly embedding the example_graphs directory as part of the package
 
 ``` R
-graphlist <- list()
-%% Create the first graph.
-graphlist[[1]] <- gr <-  igraph::sample_pa(5, directed = FALSE)
+library("netseer")
 
-%% Generate 19 graphs using the first graph. Resulting in 20 graphs total.
-for(i in 2:20){
- gr <-  generate_graph_exp(gr, 
-  del_edge = 0.1, 
-  new_nodes = 0.1, 
-  edge_increase = 0.1)
- graphlist[[i]] <- gr
-}
+# load 20 graphs from the example_graphs directory
+path_to_graphs <- file.path("./example_graphs/")
+graph_list <- netseer::read_graph_list(path_to_graphs = path_to_graphs, format = "gml")
 
-%% Predict graph one step into the future. Excluding the 20th graph for comparison.
-%% weights_opt 5 causes older edges to have less weight.
-pred_1 <- predict_graph(graphlist[1:19], h = 1, weights_opt = 5)
+# predict graph 20 using graphs 1 to 19
+# h=1 means predict 1 step into the future
+# weights_opt=7 sets the edge weight of the last seen graph as 1, otherwise 0.
+predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=7, h=1)
 
-%% Compare the predicted 20th graph with the actual 20th graph.
-measure_error(graphlist[[20]], pred_1)
+# compare real graph 20 and predicted graph 20 by measuring vertex and edge errors
+output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
+print(output$vertex_err)
+print(output$edge_err)
 ```
 
 # Licensing and Availability
