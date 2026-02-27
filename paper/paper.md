@@ -107,7 +107,7 @@ A conceptual example of graph prediction is shown in [@fig:graph_grow].
 The following example code shows how _Netseer_ can be used in R.
 The code uses 20 example graphs provided online as [example_graphs.zip](https://github.com/sevvandi/netseer_paper/blob/main/netseer-r/example_graphs.zip).
 
-## TODO: discuss possibly embedding the example_graphs directory as part of the package
+**TODO:** add numerical values as comments after `print(output$vertex_err)` and `print(output$edge_err)`
 
 ``` R
 library("netseer")
