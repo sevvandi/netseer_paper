@@ -48,10 +48,10 @@ or employ computationally expensive deep generative models that may require larg
 In many practical situations access to high-performance computational resources can be limited
 and large amounts of training data may be infeasible to obtain.
 
-The `Netseer` package aims to be both computationally efficient and have low training data requirements,
+_Netseer_ aims to be both computationally efficient and have low training data requirements,
 allowing execution on standard desktop computers.
 This is achieved via exploiting time series modelling in conjunction with an adapted form of FBA [@Orth_2010] [@Sahu_2021].
-A comprehensive description of the prediction algorithm is given in [@Kandan_2026].
+A comprehensive description of the underlying graph prediction algorithm is given in [@Kandan_2026].
 
 <!--
 Existing approaches related to graph prediction have notable shortcomings,
@@ -69,10 +69,14 @@ predicting a graph from a given time series, and measuring differences (errors) 
 There are also functions for generating synthetic graphs.
 A summary of the available functionality is given in Table **TODO**.
 
+**TODO:**
+* maybe rename `read_graph_list()` to `load_graphs_dir()`?
+* add new `load_graph_list()` function to load graphs specified in an R list/array?
+
 
 | Function | Summary |
 |----|----|
-| `read_graph_list()` | Load user provided graphs in alphanumeric order |
+| `read_graph_list()` | Load graphs in alphanumeric order |
 | `predict_graph()` | Predict the next graph in a sequence |
 | `measure_error()` | Return the vertex error and edge error between two graphs |
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
