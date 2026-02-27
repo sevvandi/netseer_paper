@@ -1,12 +1,24 @@
+---
+output: github_document
+bibliography: vignettes/bibliography.bib
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # Netseer
 
-*Netseer* is a software package for predicting new graphs from a given
-time series of graphs.
+*Netseer* is a software package for predicting new
+graphs from a given time series of graphs.
 
 The underlying prediction algorithm combines time series modelling with
 an adapted form of Flux Balance Analysis, an approach widely used in
@@ -21,16 +33,16 @@ information. A comprehensive description of the algorithm is given in:
 
 ## Installation
 
-The `netseer` package can be installed via CRAN or via GitHub. The
-latter will have the most up to date version.
+The `netseer` package can be installed via CRAN or via GitHub.
+The latter will have the most up to date version.
 
-- Installation via CRAN:
+* Installation via CRAN:
 
 ``` r
 install.packages("netseer")
 ```
 
-- Installation via GitHub:
+* Installation via GitHub:
 
 ``` r
 install.packages("remotes")
@@ -38,13 +50,11 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
-When building from GitHub, a C++ compiler and the `curl` library are
-required to build dependencies. \* Windows/Mac: install
-[RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
-(**TODO:** check: is this the same for Mac) \* Ubuntu/Debian:
-`sudo apt install build-essential libcurl4-openssl-dev` (**TODO:**
-check) \* Fedora/RHEL/CentOS:
-`sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
+When building from GitHub, a C++ compiler and the `curl` library are required to build dependencies.
+* Windows/Mac: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html) (**TODO:** check: is this the same for Mac)
+* Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev`  (**TODO:** check)
+* Fedora/RHEL/CentOS: `sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
+
 
 ## Available Functions
 
@@ -56,8 +66,9 @@ check) \* Fedora/RHEL/CentOS:
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly. |
 | `generate_graph_exp()` | Generate a time series of random graphs that grow exponentially. |
 
-Documentation for the above functions is available in the [Documentation
-PDF](./docs/netseer.pdf).
+
+
+Documentation for the above functions is available in the [Documentation PDF](./docs/netseer.pdf).
 
 ## Example
 
@@ -67,23 +78,12 @@ Goal:
 - Use graphs 1 to 19 to predict the 20th graph.
 - Compare the actual 20th graph to the newly predicted 20th graph.
 
-Before starting, download the [example_graphs.zip](./example_graphs.zip)
-and extract the zip to your project root. The zip contains 20 example
-graphs.
+Before starting, download the [example_graphs.zip](./example_graphs.zip) and extract the zip to your project root.
+The zip contains 20 example graphs.
 
-Information about specific functions can be found in the [Documentation
-PDF](./docs/netseer.pdf), such as what the `weights_opt` parameter
-changes in `predict_graph()`
+Information about specific functions can be found in the [Documentation PDF](./docs/netseer.pdf), such as what the `weights_opt` parameter changes in `predict_graph()`
 
-**TODO:** add internal function that uses a function from the feasts
-package
-
-**TODO:** update documentation to make sure all the functions are listed
-and described
-
-**TODO:** update documentation to bump the version number (eg. 0.2.1)
-
-------------------------------------------------------------------------
+---
 
 ``` r
 library("netseer")
@@ -102,4 +102,5 @@ predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=7, h=1)
 output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output$vertex_err)
 print(output$edge_err)
+
 ```

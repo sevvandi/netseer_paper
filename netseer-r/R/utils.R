@@ -1,6 +1,11 @@
 library(igraph)
 library(feasts)
 
+## Dummy function to ensure feasts is properly loaded.
+feasts_dummy <- function(){
+  test <- feasts::ACF()
+}
+
 triangle_density <- function(gr) {
   sum(igraph::count_triangles(gr)) / (igraph::vcount(gr) * (igraph::vcount(gr) -
                                                               1) * (igraph::vcount(gr) - 2) / 6)
