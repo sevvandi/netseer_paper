@@ -29,7 +29,7 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r")
 ```
 
-When building from GitHub, a C++ compiler and the `curl` library are required to build the dependencies.
+**Caveat**: When building from GitHub, a C++ compiler and the `curl` library are required to build the dependencies.
 
 * Windows: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
 * MacOS: install Xcode; command line example: `xcode-select --install`
@@ -85,6 +85,7 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output$vertex_err)
 print(output$edge_err)
 ```
+
 
 
 
