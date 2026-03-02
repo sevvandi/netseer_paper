@@ -1,9 +1,8 @@
 # Netseer
 
-*Netseer* is an R software package for predicting new graphs from a given time series of graphs.
-
-The underlying prediction algorithm combines time series modelling with an adapted form of Flux Balance Analysis,
-an approach widely used in biochemistry for reconstructing metabolic networks from partial information.
+*Netseer* is an open-source software package for R that models a temporal sequence of graphs and predicts new graphs at future time steps.
+The underlying algorithm is comprised of time series modelling combined with an adapted form of Flux Balance Analysis,
+an approach used in biochemistry for reconstructing metabolic networks from partial information.
 A comprehensive description of the algorithm is given in:
 
 - Predicting Graph Structure via Adapted Flux Balance Analysis.  
@@ -13,8 +12,8 @@ A comprehensive description of the algorithm is given in:
 
 ## Installation
 
-The `netseer` package can be installed via CRAN or via GitHub. The
-latter will have the most up to date version.
+The `netseer` package can be installed via CRAN or via GitHub.
+The latter will have the most up to date version.
 
 - Installation via CRAN:
 
