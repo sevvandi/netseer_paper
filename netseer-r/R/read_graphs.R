@@ -37,7 +37,7 @@ load_graphs_dir <- function(path_to_graphs, format) {
   if (nchar(path_to_graphs) != "/") {
     path_to_graphs <- paste0(path_to_graphs, "/")
   }
-  file_names <- list.files(path_to_graphs, full_name = TRUE, pattern = paste0('*.' , format))
+  file_names <- list.files(path_to_graphs, full.names = TRUE, pattern = paste0('*.' , format))
   graphlist <- read_to_graph(file_names = file_names, format = format)
   graphlist
 }
