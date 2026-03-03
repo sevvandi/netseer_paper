@@ -151,44 +151,42 @@ read_to_graph <- function(file_names, format) {
 #' save_graphs(sample_graph, path, ".gml", "gml")
 #' }
 #' @export
-save_graphs <- function(graph, file_path, filetype = ".gml", format) {
-  # graph: What graph to save.
-  # Save location:Filepath to save the data to
-  # Format: Format that works with
+save_graphs <- function(graph, file_path, filetype = ".gml", format){
   check_format(format)
   msg <- FALSE
   if (length(graph) == 0) {
     stop("Error: Supplied graph or graphlist has no length.")
-
-  }
-  if (class(graph) == "list") {
-    filename <- paste0(file_path, filetype)
-    write_graph(graph, filename, format)
-    filename_check <- paste0(file_path, "1", filetype)
-    if (file.exists(filename_check)) {
-      msg <- TRUE
-    }
   }
   if (class(graph) == "igraph") {
+    filename <- paste0(file_path, filetype)
+    igraph::write_graph(graph, filename, format)
+    filename_check <- paste0(file_path, filetype)
+    if (file.exists(filename_check)) {
+      msg <- TRUE
+    }
+  }
+  if (class(graph) == "list") {
     for (i in 1:length(graph)) {
-      filename <- paste0(file_path, i, filetype)
-      write_graph(graph, filename, format)
+      if (!is.null(graph[[i]])) {
+        filename <- paste0(file_path, i, filetype)
+        print(filename)
+        igraph::write_graph(graph[[i]], filename, format)
+      }
     }
     filename_check <- paste0(file_path, "1", filetype)
     if (file.exists(filename_check)) {
       msg <- TRUE
     }
   }
-
   if (msg) {
     success_msg <- paste0("Saved to ", file_path)
     print(success_msg)
   }
   if (!msg) {
-    error_msg <- paste0("Error: Failed to save file to ", file_path)
+    error_msg <- paste0("Error: Failed to save file to ", 
+      file_path)
     print(error_msg)
   }
-
 }
 
 check_format <- function(format) {
