@@ -18,8 +18,8 @@
 #'set.seed(1)
 #'gr <- generate_graph_exp()
 #'gr
-#'
-#'@export
+#' @keywords internal
+#' @export
 generate_graph_exp <- function(gr = NULL, del_edge = 0.1, new_nodes = 0.1, edge_increase = 0.1){
   # gr - graph to start with
   # del_edge - between 0 and 1. The proportion of edges to delete
@@ -74,9 +74,8 @@ generate_graph_exp <- function(gr = NULL, del_edge = 0.1, new_nodes = 0.1, edge_
 #'set.seed(1)
 #'gr <- generate_graph_linear()
 #'gr
-#'
-#'@export
-#'@export
+#' @keywords internal
+#' @export
 generate_graph_linear <- function(gr = NULL, del_edge = 1, new_nodes = 1, edge_increase = 1, edges_per_new_node = 3){
   if(is.null(gr)){
     gr <- igraph::sample_pa(10, directed = FALSE)

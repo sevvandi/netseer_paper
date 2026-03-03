@@ -11,20 +11,46 @@ triangle_density <- function(gr) {
                                                               1) * (igraph::vcount(gr) - 2) / 6)
 }
 
-#' Generates a bigger graph using either linear or exponential growth.
+#' Generates a bigger graph by linear growth.
 #'
-#' Wrapper around 'generate_graph_linear' and 'generate_graph_exp'.
+#' Generates a bigger graph using parameters for node and edge growth. If a sequence
+#' of graphs are created, the number of nodes would linearly increase.
+#'
+#'@param gr The input graph to generate the next graph. If set to \code{NULL}
+#'a graph using \code{igraph::sample_pa} is used as the input graph.
+#'@param del_edge The number of edges deleted from the input graph. Default
+#'set to \code{1}.
+#'@param new_nodes The number of nodes added to the input graph. Default
+#'set to \code{1}.
+#'@param edge_increase The number of edges added to the input graph. Default
+#'set to \code{1}.
+#'@param edges_per_new_node The number of edges added to the new nodes. Default
+#'set to \code{3}.
+#'
+#'@return A graph.
+#'
+#'@examples
+#'set.seed(1)
+#'gr <- generate_graph_linear()
+#'gr
+#' @keywords internal
+#' @export
+
+
+
+#' Generates a set of time series graphs with either exponential or linear growth.
+#'
 #'
 #'@param num_graphs The number of graphs to be generated.
 #'Default set to \code{15}.
 #'@param gr The input graph to generate the next graph. If set to \code{NULL}
 #'a graph using \code{igraph::sample_pa} is used as the input graph.
 #'@param del_edge The proportion of edges deleted from the input graph. Default
-#'set to \code{0.1}.
+#'set to \code{0.1}. Set to integers only when using linear.
 #'@param new_nodes The proportion of nodes added to the input graph. Default
-#'set to \code{0.1}.
+#'set to \code{0.1}. Set to integers only when using linear.
 #'@param edge_increase The proportion of edges added to the input graph. Default
-#'set to \code{0.1}.
+#'set to \code{0.1}. Set to integers only when using linear.
 #'@param mode The method the graphs grow in.
 #'Either \code{"linear"} for linear creation, or \code{"exp"}.
 #'Default set to \code{"exp"}.
