@@ -48,10 +48,10 @@ or employ computationally expensive deep generative models that may require larg
 In many practical situations access to high-performance computational resources can be limited
 and large amounts of training data may be infeasible to obtain.
 
-The `Netseer` package aims to be both computationally efficient and have low training data requirements,
+_Netseer_ aims to be both computationally efficient and have low training data requirements,
 allowing execution on standard desktop computers.
 This is achieved via exploiting time series modelling in conjunction with an adapted form of FBA [@Orth_2010] [@Sahu_2021].
-A comprehensive description of the prediction algorithm is given in [@Kandan_2026].
+A comprehensive description of the underlying graph prediction algorithm is given in [@Kandan_2026].
 
 <!--
 Existing approaches related to graph prediction have notable shortcomings,
@@ -67,12 +67,18 @@ _Netseer_ is provided as a package for R, available on CRAN and GitHub.
 The package provides functions for loading a time series (ordered set) of graphs,
 predicting a graph from a given time series, and measuring differences (errors) between graphs.
 There are also functions for generating synthetic graphs.
-A summary of the available functionality is given in Table **TODO**.
+A summary of the available functionality is given in Table [@tab:functions].
+
+**TODO:**
+* maybe rename `read_graph_list()` to `load_graphs_dir()`?
+* add new `load_graph_list()` function to load graphs specified in an R list/array?
+
+**TODO:** caption for table \label{tab:functions}
 
 
 | Function | Summary |
 |----|----|
-| `read_graph_list()` | Load user provided graphs in alphanumeric order |
+| `read_graph_list()` | Load graphs in alphanumeric order |
 | `predict_graph()` | Predict the next graph in a sequence |
 | `measure_error()` | Return the vertex error and edge error between two graphs |
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
@@ -103,7 +109,7 @@ A conceptual example of graph prediction is shown in [@fig:graph_grow].
 The following example code shows how _Netseer_ can be used in R.
 The code uses 20 example graphs provided online as [example_graphs.zip](https://github.com/sevvandi/netseer_paper/blob/main/netseer-r/example_graphs.zip).
 
-## TODO: discuss possibly embedding the example_graphs directory as part of the package
+**TODO:** add numerical values as comments after `print(output$vertex_err)` and `print(output$edge_err)`
 
 ``` R
 library("netseer")
