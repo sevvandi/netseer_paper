@@ -34,7 +34,9 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r", Ncpus=3)
 ```
 
-**Caveat**: When building from GitHub, a C++ compiler and the `curl` library may be needed to build the dependencies.
+**Caveat**:
+When building from GitHub, a C++ compiler and/or the _curl_ library may need to be installed first in order to build the dependencies.
+These can be installed via:
 
 * Windows: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
 * MacOS: install Xcode; command line example: `xcode-select --install`
@@ -43,11 +45,11 @@ remotes::install_github("sevvandi/netseer_paper/netseer-r", Ncpus=3)
 
 ## Available Functions
 
-* `read_graph_list()`       - load user provided graphs in alphanumeric order **TODO:** check
-* `predict_graph()`         - predict the next graph in a sequence.
-* `measure_error()`         - return the vertex error and edge error between two graphs.
-* `generate_graph_list()`   - generate a time series of random graphs that grow either linearly or exponentially.
-* `save_graphs()`           - save a graph or list of graphs to the file system in a specified format
+* `read_graph_list()`     - load user provided graphs in alphanumeric order **TODO:** check
+* `predict_graph()`       - predict the next graph in a sequence.
+* `measure_error()`       - return the vertex error and edge error between two graphs.
+* `generate_graph_list()` - generate a time series of random graphs that grow either linearly or exponentially
+* `save_graphs()`         - save a graph or list of graphs to the file system in a specified format
 
 **TODO:** check R package documentation to make sure all the functions are listed and described
 
@@ -56,51 +58,55 @@ The above functions are described in the [R package documentation](./netseer-r/d
 
 ## Example
 
-Steps:
+The example below loads 20 graphs from the file system and uses graphs 1 to 19 to predict graph 20.
+The predicted graph 20 is compared to the actual graph 20 via measuring vertex and edge errors.
 
-* load 20 graphs from the file system
-* use graphs 1 to 19 to predict graph 20
-* compare predicted graph 20 to actual graph 20
-
-Before starting, download the [example_graphs.zip](./example_graphs.zip) and extract the zip to your project root.
-The zip contains 20 example graphs.
+Before starting, download [example_graphs.zip](./example_graphs.zip) which contains the 20 example graphs.  
+Extract the graphs to your project root.
 
 ``` r
 library("netseer")
 
-## Create an absolute path to the example_graphs directory.
-## Replace "./example_graphs" with the relative path to the example_graphs directory.
+## create an absolute path to the example_graphs directory;
+## change "./example_graphs" to reflect your setup
 
 path_to_graphs <- normalizePath("./example_graphs")
 
-## Load the example graphs into R.
+
+## load the example graphs
 
 graph_list <- netseer::load_graphs(use_directory = path_to_graphs, format = "gml")
 
-## Predict the 20th graph using graphs 1 to 19.
-## h=1 means predict 1 step into the future. So predict the 20th graph.
-## weights_opt=7 sets the edge weight of the last seen graph as 1, otherwise 0.
+
+## use graphs 1 to 19 to predict graph 20;
+## h=1 means predict 1 step into the future;
+## weights_opt=7 sets the edge weight of the last seen graph as 1, otherwise 0
 
 predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=7, h=1)
 
+
+## compare predicted graph 20 to actual graph 20 by checking the vertex and edge errors
+
 output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
+
 print(output$vertex_err)   # possible output: 0.053
 print(output$edge_err)     # possible output: 0.013
 
-# To save a graph or graph list back into gml.
-# Create a path to a directory tosave the graphs to. Add the name of the graph to the end.
-saved_path <- normalizePath("./saved/graph")
+
+## save the predicted graph as a file
+
+saved_path <- normalizePath("./predicted_graph")
 netseer::save_graphs(predicted_graph, saved_path, ".gml", "gml")
 
 ```
 
-Alternatively to loading the graphs from a file, synthetic graphs can be generated from within netseer.  
-These graphs are used in the same flow as the graphs loaded from the file system and can be saved using the same `save_graphs()`.  
+It is also possible to generate a list of random graphs that grow in linear or exponential manner.
+For example:
 
 ``` r
-# Generate 20 graphs.
-graph_list_exp <- netseer::generate_graph_list(num_graphs = 20, mode = "exp")
 
-predicted_graph <- netseer::predict_graph(graph_list_exp[1:19], weights_opt=7, h=1)
+## generate 20 random graphs that grow in an exponential manner
+
+graph_list <- netseer::generate_graph_list(num_graphs = 20, mode = "exp")
 
 ```
