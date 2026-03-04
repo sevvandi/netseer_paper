@@ -34,14 +34,13 @@ library("remotes")
 remotes::install_github("sevvandi/netseer_paper/netseer-r", Ncpus=3)
 ```
 
-**Caveat**:
+* **Caveat**:
 When building from GitHub, a C++ compiler and/or the _curl_ library may need to be installed first in order to build the dependencies.
 These can be installed via:
-
-* Windows: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
-* MacOS: install Xcode; command line example: `xcode-select --install`
-* Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev`
-* Fedora/RHEL/CentOS: `sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
+  * Windows: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
+  * MacOS: install Xcode; command line example: `xcode-select --install`
+  * Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev`
+  * Fedora/RHEL/CentOS: `sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
 
 ## Available Functions
 
