@@ -42,15 +42,16 @@ These can be installed via:
   * Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev`
   * Fedora/RHEL/CentOS: `sudo dnf install gcc-c++ libstdc++-devel libcurl-devel`
 
+
 ## Available Functions
 
-* `read_graph_list()`     - load user provided graphs in alphanumeric order **TODO:** check
-* `predict_graph()`       - predict the next graph in a sequence.
-* `measure_error()`       - return the vertex error and edge error between two graphs.
-* `generate_graph_list()` - generate a time series of random graphs that grow either linearly or exponentially
-* `save_graphs()`         - save a graph or list of graphs to the file system in a specified format
+Summary of available functions:
 
-**TODO:** check R package documentation to make sure all the functions are listed and described
+* `load_graphs()`         - load graphs from the file system
+* `save_graphs()`         - save a graph or list of graphs to the file system
+* `predict_graph()`       - predict the next graph in a sequence
+* `measure_error()`       - return the vertex error and edge error between two graphs
+* `generate_graph_list()` - generate a time series of random graphs that grow either linearly or exponentially
 
 The above functions are described in the [R package documentation](./netseer-r/docs/netseer.pdf).
 
@@ -60,40 +61,31 @@ The above functions are described in the [R package documentation](./netseer-r/d
 The example below loads 20 graphs from the file system and uses graphs 1 to 19 to predict graph 20.
 The predicted graph 20 is compared to the actual graph 20 via measuring vertex and edge errors.
 
-Before starting, download [example_graphs.zip](./example_graphs.zip) which contains the 20 example graphs.  
+Before starting, download [example_graphs.zip](./netseer-r/example_graphs.zip) which contains the 20 example graphs.  
 Extract the graphs to your project root.
 
 ``` r
 library("netseer")
 
-## create an absolute path to the example_graphs directory;
-## change "./example_graphs" to reflect your setup
-
+# create an absolute path to the example_graphs directory; change "./example_graphs" to reflect your setup
 path_to_graphs <- normalizePath("./example_graphs")
 
-
-## load the example graphs
-
+# load the example graphs
 graph_list <- netseer::load_graphs(use_directory = path_to_graphs, format = "gml")
 
-
-## use graphs 1 to 19 to predict graph 20;
-## h=1 means predict 1 step into the future;
-## weights_opt=7 sets the edge weight of the last seen graph as 1, otherwise 0
-
+# use graphs 1 to 19 to predict graph 20;
+# h=1 means predict 1 step into the future;
+# weights_opt=7 sets the edge weight of the last seen graph as 1, otherwise 0
 predicted_graph <- netseer::predict_graph(graph_list[1:19], weights_opt=7, h=1)
 
-
-## compare predicted graph 20 to actual graph 20 by checking the vertex and edge errors
-
+# compare predicted graph 20 to actual graph 20 by checking the vertex and edge errors
 output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 
 print(output$vertex_err)   # possible output: 0.053
 print(output$edge_err)     # possible output: 0.013
 
 
-## save the predicted graph as a file
-
+# save the predicted graph as a file
 saved_path <- normalizePath("./predicted_graph")
 netseer::save_graphs(predicted_graph, saved_path, ".gml", "gml")
 
