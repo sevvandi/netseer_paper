@@ -84,7 +84,6 @@ output <- netseer::measure_error(graph_list[[20]], predicted_graph[[1]])
 print(output$vertex_err)   # possible output: 0.053
 print(output$edge_err)     # possible output: 0.013
 
-
 # save the predicted graph as a file
 saved_path <- normalizePath("./predicted_graph")
 netseer::save_graphs(predicted_graph, saved_path, ".gml", "gml")
@@ -96,8 +95,7 @@ For example:
 
 ``` r
 
-## generate 20 random graphs that grow in an exponential manner
-
+# generate 20 random graphs that grow in an exponential manner
 graph_list <- netseer::generate_graph_list(num_graphs = 20, mode = "exp")
 
 ```
