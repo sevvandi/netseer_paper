@@ -67,7 +67,7 @@ saving graphs  to the file system,
 predicting a graph from a given time series,
 and measuring differences (errors) between graphs.
 There are also functions for generating sequences of random graphs.
-A summary of the available functionality is given in Table [@tab:functions].
+A summary of the available functionality is given in Table \ref{tab:functions}.
 
 | Function | Summary |
 |----|----|
@@ -78,7 +78,7 @@ A summary of the available functionality is given in Table [@tab:functions].
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
 | `generate_graph_exp()` | Generate a time series of random graphs that grow exponentially |
 
-: List of available functions in Netseer. \label{tab:functions}
+: List of available functions in Netseer.\label{tab:functions}
 
 # Graph Prediction
 
@@ -92,11 +92,10 @@ the predicted degrees, which correspond to edges, are allocated to the vertices 
 There are various options, including the time step of the prediction and selection of weight methods,
 which are used to emphasise or de-emphasise certain edges.
 For example, older edges can be assigned a lower weight and hence reduce their influence during prediction.
-An explanation of the weight options is given in the associated documentation/
+An explanation of the weight options is given in the associated documentation.
+A conceptual example of graph prediction is shown in Figure \ref{fig:graph_grow}.
 
-A conceptual example of graph prediction is shown in [@fig:graph_grow].
-
-![Conceptual example of a time series with growing graphs. Graphs 1 to 14 are used for learning the dynamics, followed by predicting graph 15. \label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
+![Conceptual example of a time series with growing graphs. Graphs 1 to 14 are used for learning the dynamics, followed by predicting graph 15.\label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
 
 
 # Example Usage
