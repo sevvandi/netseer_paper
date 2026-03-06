@@ -1,18 +1,21 @@
 Package: netseer
 Type: Package
 Title: Graph Prediction from a Graph Time Series
-Version: 0.1.4
+Version: 0.2.0
 Authors@R: c(
   person("Sevvandi", "Kandanaarachchi", email = "sevvandik@gmail.com",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0002-0337-0395")),
-  person("Stefan", "Westerlund", 
-  role = c("aut") ))
+  person("Brodie", "Oldfield", 
+  role = c("aut") ),
+  person("Conrad", "Sanderson", 
+  role = c("aut") ),
+  )
 Maintainer: Sevvandi Kandanaarachchi <sevvandik@gmail.com>
-Description: Predicting the structure of a graph including new nodes and edges using
-    a time series of graphs. Flux balance analysis, a linear and integer programming 
-    technique used in biochemistry is used with time series prediction methods to 
-    predict the graph structure at a future time point 
-    Kandanaarachchi (2025) <doi:10.48550/arXiv.2507.05806>.
+Description: Predicting the structure of a graph (including new nodes and edges)
+    from a time series of graphs. An adapted form of Flux Balance Analysis is used
+    in conjuction with time series prediction methods to predict the graph structure
+    at a future time point.  Details of the underlying algorithm are available in
+    Kandanaarachchi et al (2026) <doi:10.1007/978-981-95-4969-6_27>.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
@@ -40,3 +43,4 @@ URL: https://sevvandi.github.io/netseer/
 VignetteBuilder: knitr
 Depends: 
     R (>= 3.5)
+
