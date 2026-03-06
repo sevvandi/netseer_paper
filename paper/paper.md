@@ -25,7 +25,7 @@ bibliography: paper.bib
 
 # Summary
 
-_Netseer_ is an open-source package for R that models a temporal sequence of graphs and predicts new graphs at future time steps.
+_Netseer_ is an open-source software package for R that models a temporal sequence of graphs and predicts new graphs at future time steps.
 The underlying algorithm is comprised of time series modelling combined with an adapted form of Flux Balance Analysis (FBA),
 a technique originating from biochemistry used for reconstructing metabolic networks from partial information [@Orth_2010].
 _Netseer_ is able to predict both vertices and edges while having low computational intensity and data requirements.
@@ -63,8 +63,10 @@ or being computationally expensive.
 
 _Netseer_ is provided as a package for R, available on CRAN and GitHub.
 The package provides functions for loading a time series (ordered set) of graphs,
-predicting a graph from a given time series, and measuring differences (errors) between graphs.
-There are also functions for generating synthetic graphs.
+saving graphs  to the file system,
+predicting a graph from a given time series,
+and measuring differences (errors) between graphs.
+There are also functions for generating sequences of random graphs.
 A summary of the available functionality is given in Table [@tab:functions].
 
 **TODO:** caption for table \label{tab:functions}
@@ -96,7 +98,7 @@ An explanation of the weight options is given in the associated documentation/
 
 A conceptual example of graph prediction is shown in [@fig:graph_grow].
 
-![Example of a time series with growing graphs. Graphs 1 to 14 are used for learning the dynamics, followed by predicting graph 15.  TODO: remove "1 step" from the rightmost panel. \label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
+![Conceptual example of a time series with growing graphs. Graphs 1 to 14 are used for learning the dynamics, followed by predicting graph 15. \label{fig:graph_grow}](assets/graphs_1_to_15.pdf)
 
 
 # Example Usage
