@@ -31,7 +31,7 @@ a technique originating from biochemistry used for reconstructing metabolic netw
 _Netseer_ is able to predict both vertices and edges while having low computational intensity and data requirements.
 
 
-# Statement of need
+# Statement of Need
 
 Many dynamic processes such as transport, electricity, telecommunication, and social networks
 can be represented through an ordered sequence of graphs, known as dynamic graphs.
@@ -69,9 +69,6 @@ and measuring differences (errors) between graphs.
 There are also functions for generating sequences of random graphs.
 A summary of the available functionality is given in Table [@tab:functions].
 
-**TODO:** caption for table \label{tab:functions}
-
-
 | Function | Summary |
 |----|----|
 | `read_graphs()` | Load graphs from a directory or from a list of filenames |
@@ -81,6 +78,7 @@ A summary of the available functionality is given in Table [@tab:functions].
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
 | `generate_graph_exp()` | Generate a time series of random graphs that grow exponentially |
 
+: List of available functions in Netseer. \label{tab:functions}
 
 # Graph Prediction
 
