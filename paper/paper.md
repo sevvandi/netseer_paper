@@ -1,5 +1,5 @@
 ---
-title: 'Netseer: An R Package for Predicting Dynamic Graphs via Adapted Flux Balance Analysis'
+title: 'Netseer: An R Package for Graph Prediction using Adapted Flux Balance Analysis'
 tags:
   - R
 authors:
