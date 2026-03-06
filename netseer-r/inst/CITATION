@@ -1,9 +1,11 @@
-citHeader("To cite the netseer package in publications, please use:")
+citHeader("To cite the Netseer package in publications, please use:")
 
 bibentry(bibtype = "Article",
   title     = "Predicting Graph Structure via Adapted Flux Balance Analysis",
-  author    = c(as.person("Sevvandi Kandanaarachchi"),as.person("Ziqi Xu"),as.person("Stefan Westerlund"), as.person("Conrad Sanderson")),
-  journal   = "arXiv preprint arXiv:2507.05806",
-  year      =  2025,
-  doi       = "10.48550/arXiv.2507.05806"
+  author    = c(as.person("Sevvandi Kandanaarachchi"),as.person("Ziqi Xu"),as.person("Stefan Westerlund"),as.person("Conrad Sanderson")),
+  journal   = "Lecture Notes in Computer Science (LNCS)",
+  year      = 2026,
+  volume    = 16370,
+  pages     = "351-363"
+  doi       = "10.1007/978-981-95-4969-6_27"
 )
