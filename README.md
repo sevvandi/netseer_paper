@@ -31,12 +31,12 @@ install.packages("netseer")
 ``` r
 install.packages("remotes")
 library("remotes")
-remotes::install_github("sevvandi/netseer_paper/netseer-r", Ncpus=3)
+remotes::install_github("sevvandi/netseer_paper/netseer-r", Ncpus=4)
 ```
 
 * **Caveat**:
-When building from GitHub, a C++ compiler and/or the _curl_ library may need to be installed first in order to build the dependencies.
-These can be installed via:
+When building from GitHub, a C++ compiler and/or the _curl_ library may need to be installed first in order to build the dependencies;
+these can be installed via:
   * Windows: install [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html)
   * MacOS: install Xcode; command line example: `xcode-select --install`
   * Ubuntu/Debian: `sudo apt install build-essential libcurl4-openssl-dev`
