@@ -3,14 +3,12 @@ title: 'Netseer: An R Package for Predicting Dynamic Graphs via Adapted Flux Bal
 tags:
   - R
 authors:
-  - name: Brodie Oldfield
-    orcid: 0009-0000-4500-5006
-    affiliation: 1
   - name: Sevvandi Kandanaarachchi
     orcid: 0000-0002-0337-0395
     affiliation: 1
     corresponding: true # (This is how to denote the corresponding author)
-  - name: Stefan Westerlund
+  - name: Brodie Oldfield
+    orcid: 0009-0000-4500-5006
     affiliation: 1
   - name: Conrad Sanderson
     orcid: 0000-0002-0049-4501
@@ -69,16 +67,13 @@ predicting a graph from a given time series, and measuring differences (errors) 
 There are also functions for generating synthetic graphs.
 A summary of the available functionality is given in Table [@tab:functions].
 
-**TODO:**
-* maybe rename `read_graph_list()` to `load_graphs_dir()`?
-* add new `load_graph_list()` function to load graphs specified in an R list/array?
-
 **TODO:** caption for table \label{tab:functions}
 
 
 | Function | Summary |
 |----|----|
-| `read_graph_list()` | Load graphs in alphanumeric order |
+| `read_graphs()` | Load graphs from a directory or from a list of filenames |
+| `save_graphs()` | Save graphs to the filesystem |
 | `predict_graph()` | Predict the next graph in a sequence |
 | `measure_error()` | Return the vertex error and edge error between two graphs |
 | `generate_graph_linear()` | Generate a time series of random graphs that grow linearly |
@@ -131,8 +126,8 @@ print(output$edge_err)
 
 # Licensing and Availability
 
-The _Netseer_ package is licensed under the **TODO** license,
-with the source code available at GitHub (<https://github.com/sevvandi/netseer>).
+The _Netseer_ package is licensed under the GNU General Public License v3 license,
+with the source code available at <https://github.com/sevvandi/netseer>.
 We are open to feature requests and bug reports, as well as questions and concerns.
 
 # Acknowledgements
@@ -141,3 +136,4 @@ This work has been supported in part by the Australian Research Council (ARC) In
 in Optimisation Technologies, Integrated Methodologies, and Applications (OPTIMA), Project ID IC200100009.
 
 # References
+ 
